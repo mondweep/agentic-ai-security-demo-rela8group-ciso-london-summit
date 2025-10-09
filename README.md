@@ -303,6 +303,13 @@ All research conducted ethically with responsible disclosure to affected parties
 
 This appendix documents the complete setup process and security testing performed for the live demonstration environment, including successful prompt injection attack defense testing.
 
+> **🎯 QUICK START FOR LIVE DEMO:**
+> - **[DEMO-SETUP-COMPLETE.md](./DEMO-SETUP-COMPLETE.md)** - All demo scripts, payloads, and configurations (13 files created)
+> - **[presentation/DEMO-CHECKLIST.md](./presentation/DEMO-CHECKLIST.md)** - 810-line comprehensive technical checklist with disaster recovery
+> - **[demo/README.md](./demo/README.md)** - Demo environment quick reference and troubleshooting
+>
+> These documents contain full terminal setup, 4-payload attack scenarios, database queries, backup procedures, and presentation timing breakdowns. The appendix below provides detailed technical documentation of the security testing performed.
+
 ## Table of Contents
 
 - [A. Environment Setup](#a-environment-setup)
@@ -1125,6 +1132,15 @@ Info: [DatabaseMigrationService] ✅ Completed: @elizaos/plugin-sql
 
 ## E. Demo Execution Guide
 
+> **📚 COMPREHENSIVE DEMO RESOURCES:**
+> - **[DEMO-SETUP-COMPLETE.md](./DEMO-SETUP-COMPLETE.md)** - Complete demo setup guide with all scripts, payloads, and configurations
+> - **[presentation/DEMO-CHECKLIST.md](./presentation/DEMO-CHECKLIST.md)** - Full technical setup, disaster recovery procedures, and presentation workflow
+> - **[demo/README.md](./demo/README.md)** - Demo environment documentation and quick start guide
+
+These documents provide comprehensive coverage of the live demonstration setup, including terminal configuration, attack payload preparation, database setup, disaster recovery procedures, and detailed execution scripts. The following section provides a condensed version for quick reference.
+
+---
+
 ### E.1 Pre-Demo Checklist (15 minutes before presentation)
 
 **Terminal Setup:**
@@ -1382,6 +1398,13 @@ ngrok http 3001
 ---
 
 ## F. Advanced Attack Payload Preparation
+
+> **📄 COMPLETE ATTACK PAYLOAD FILE:**
+> **[demo/payloads/advanced-attack-payloads.txt](./demo/payloads/advanced-attack-payloads.txt)** - Ready-to-use attack payloads for copy-paste testing
+>
+> This file contains all 10 attack scenarios with full instructions, success probability estimates, MAESTRO mappings, and 3 backup payloads. Referenced in [DEMO-SETUP-COMPLETE.md](./DEMO-SETUP-COMPLETE.md) and [presentation/DEMO-CHECKLIST.md](./presentation/DEMO-CHECKLIST.md) for live demonstration use.
+
+---
 
 ### F.1 Beyond Basic Prompt Injection
 
