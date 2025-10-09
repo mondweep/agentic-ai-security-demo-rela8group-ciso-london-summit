@@ -675,20 +675,20 @@ graph TB
         A1 --> A2 --> A3 --> A4 --> A5 --> A6
     end
 
-    subgraph Prevention["🛡️ PREVENTION CONTROLS (Stop attack before it starts)"]
+    subgraph Prevention["🛡️ PREVENTION CONTROLS"]
         direction TB
 
-        P1[🔐 Plugin Code Signing]
-        P1Desc[⚙️ npm package must be signed<br/>by verified publisher<br/>🎯 Blocks: Malicious plugin publication<br/>💰 Cost: $10K implementation<br/>⏱️ Effort: 2 weeks<br/>✅ Effectiveness: 95%]
+        P1["Plugin Code Signing<br/>95% Effective"]
+        P1Desc["npm packages signed by verified publisher<br/>Blocks malicious plugin publication<br/>Cost: 10K / Effort: 2 weeks"]
 
-        P2[📋 Plugin Allowlist Policy]
-        P2Desc[⚙️ Only pre-approved plugins<br/>can be installed<br/>🎯 Blocks: Installation of unknown plugins<br/>💰 Cost: $5K<br/>⏱️ Effort: 1 week<br/>✅ Effectiveness: 90%]
+        P2["Plugin Allowlist Policy<br/>90% Effective"]
+        P2Desc["Only pre-approved plugins can install<br/>Blocks unknown plugin installation<br/>Cost: 5K / Effort: 1 week"]
 
-        P3[🤖 Automated Security Scanning]
-        P3Desc[⚙️ Static analysis of all plugins<br/>before installation<br/>🎯 Blocks: Known malicious patterns<br/>💰 Cost: $20K/year SaaS<br/>⏱️ Effort: 1 day integration<br/>✅ Effectiveness: 70%]
+        P3["Automated Security Scanning<br/>70% Effective"]
+        P3Desc["Static analysis before installation<br/>Blocks known malicious patterns<br/>Cost: 20K per year / Effort: 1 day"]
 
-        P4[👥 Mandatory Code Review]
-        P4Desc[⚙️ Human review of all<br/>third-party code<br/>🎯 Blocks: Obfuscated malicious code<br/>💰 Cost: $50K/year (staff time)<br/>⏱️ Effort: Ongoing<br/>✅ Effectiveness: 85%]
+        P4["Mandatory Code Review<br/>85% Effective"]
+        P4Desc["Human review of third-party code<br/>Blocks obfuscated malicious code<br/>Cost: 50K per year / Effort: Ongoing"]
 
         P1 --> P1Desc
         P2 --> P2Desc
@@ -696,23 +696,23 @@ graph TB
         P4 --> P4Desc
     end
 
-    subgraph Detection["🔍 DETECTION CONTROLS (Catch attack in progress)"]
+    subgraph Detection["🔍 DETECTION CONTROLS"]
         direction TB
 
-        D1[📊 Runtime Behavior Monitoring]
-        D1Desc[⚙️ Monitor plugin actions:<br/>- Network connections<br/>- File system access<br/>- Environment variable reads<br/>🎯 Detects: Credential theft attempts<br/>💰 Cost: $30K/year<br/>⏱️ Effort: 2 weeks<br/>✅ Effectiveness: 80%]
+        D1["Runtime Behavior Monitoring<br/>80% Effective"]
+        D1Desc["Monitor network, filesystem, env vars<br/>Detects credential theft attempts<br/>Cost: 30K per year / Effort: 2 weeks"]
 
-        D2[🌐 Network Egress Filtering]
-        D2Desc[⚙️ Allowlist outbound domains<br/>Block unknown C&C servers<br/>🎯 Detects: Data exfiltration<br/>💰 Cost: $15K<br/>⏱️ Effort: 1 week<br/>✅ Effectiveness: 75%]
+        D2["Network Egress Filtering<br/>75% Effective"]
+        D2Desc["Allowlist domains, block C&C servers<br/>Detects data exfiltration<br/>Cost: 15K / Effort: 1 week"]
 
-        D3[🔑 Credential Access Logging]
-        D3Desc[⚙️ Alert on environment variable<br/>or secrets manager access<br/>🎯 Detects: Secret theft<br/>💰 Cost: $10K<br/>⏱️ Effort: 3 days<br/>✅ Effectiveness: 90%]
+        D3["Credential Access Logging<br/>90% Effective"]
+        D3Desc["Alert on env var or secrets access<br/>Detects secret theft<br/>Cost: 10K / Effort: 3 days"]
 
-        D4[💰 Financial Transaction Monitoring]
-        D4Desc[⚙️ Anomaly detection on blockchain<br/>and API spending<br/>🎯 Detects: Unauthorized transfers<br/>💰 Cost: $25K/year<br/>⏱️ Effort: 1 week<br/>✅ Effectiveness: 95%]
+        D4["Financial Transaction Monitoring<br/>95% Effective"]
+        D4Desc["Anomaly detection on blockchain & API<br/>Detects unauthorized transfers<br/>Cost: 25K per year / Effort: 1 week"]
 
-        D5[🧠 Memory Integrity Checking]
-        D5Desc[⚙️ Hash and verify agent memory<br/>for tampering<br/>🎯 Detects: Backdoor installation<br/>💰 Cost: $5K<br/>⏱️ Effort: 1 week<br/>✅ Effectiveness: 70%]
+        D5["Memory Integrity Checking<br/>70% Effective"]
+        D5Desc["Hash and verify agent memory<br/>Detects backdoor installation<br/>Cost: 5K / Effort: 1 week"]
 
         D1 --> D1Desc
         D2 --> D2Desc
@@ -721,23 +721,23 @@ graph TB
         D5 --> D5Desc
     end
 
-    subgraph Response["⚡ RESPONSE CONTROLS (Limit damage during attack)"]
+    subgraph Response["⚡ RESPONSE CONTROLS"]
         direction TB
 
-        R1[🚨 Automated Circuit Breaker]
-        R1Desc[⚙️ Auto-shutdown on anomaly<br/>🎯 Limits: Credential theft window<br/>💰 Cost: $10K<br/>⏱️ Effort: 1 week<br/>✅ Effectiveness: 85%<br/>💡 Damage Reduction: 50-90%]
+        R1["Automated Circuit Breaker<br/>85% Effective"]
+        R1Desc["Auto-shutdown on anomaly<br/>Limits credential theft window<br/>Cost: 10K / Effort: 1 week / Reduces damage 50-90%"]
 
-        R2[🔒 Least Privilege for Plugins]
-        R2Desc[⚙️ Sandbox with minimal permissions<br/>🎯 Limits: Access to secrets<br/>💰 Cost: $50K (architectural)<br/>⏱️ Effort: 8 weeks<br/>✅ Effectiveness: 95%<br/>💡 Damage Reduction: 80-95%]
+        R2["Least Privilege for Plugins<br/>95% Effective"]
+        R2Desc["Sandbox with minimal permissions<br/>Limits access to secrets<br/>Cost: 50K / Effort: 8 weeks / Reduces damage 80-95%"]
 
-        R3[💳 Spending Limits & Approvals]
-        R3Desc[⚙️ Rate limit + human approval<br/>for high-value actions<br/>🎯 Limits: Financial theft<br/>💰 Cost: $15K<br/>⏱️ Effort: 2 weeks<br/>✅ Effectiveness: 90%<br/>💡 Damage Reduction: 95%+ on crypto]
+        R3["Spending Limits & Approvals<br/>90% Effective"]
+        R3Desc["Rate limit plus human approval<br/>Limits financial theft<br/>Cost: 15K / Effort: 2 weeks / Reduces damage 95%"]
 
-        R4[🔐 Secrets Manager (Not env vars)]
-        R4Desc[⚙️ Vault/AWS Secrets Manager<br/>with fine-grained access<br/>🎯 Limits: Bulk credential theft<br/>💰 Cost: $20K/year<br/>⏱️ Effort: 3 weeks<br/>✅ Effectiveness: 90%<br/>💡 Damage Reduction: 70-90%]
+        R4["Secrets Manager Not Env Vars<br/>90% Effective"]
+        R4Desc["Vault or AWS Secrets Manager<br/>Limits bulk credential theft<br/>Cost: 20K per year / Effort: 3 weeks / Reduces damage 70-90%"]
 
-        R5[🌐 Network Segmentation]
-        R5Desc[⚙️ Isolate agent runtime<br/>from production data<br/>🎯 Limits: Lateral movement<br/>💰 Cost: $30K<br/>⏱️ Effort: 4 weeks<br/>✅ Effectiveness: 85%<br/>💡 Damage Reduction: 60-80%]
+        R5["Network Segmentation<br/>85% Effective"]
+        R5Desc["Isolate agent runtime from data<br/>Limits lateral movement<br/>Cost: 30K / Effort: 4 weeks / Reduces damage 60-80%"]
 
         R1 --> R1Desc
         R2 --> R2Desc
@@ -746,20 +746,20 @@ graph TB
         R5 --> R5Desc
     end
 
-    subgraph Recovery["🔧 RECOVERY CONTROLS (Restore after compromise)"]
+    subgraph Recovery["🔧 RECOVERY CONTROLS"]
         direction TB
 
-        Rec1[📋 AI Incident Response Plan]
-        Rec1Desc[⚙️ Pre-defined playbook for<br/>agent compromise<br/>💰 Cost: $25K (consulting)<br/>⏱️ Effort: 2 weeks<br/>⚡ Recovery Time Reduction: 50%]
+        Rec1["AI Incident Response Plan"]
+        Rec1Desc["Pre-defined playbook for compromise<br/>Cost: 25K consulting / Effort: 2 weeks<br/>Reduces recovery time by 50%"]
 
-        Rec2[💾 Immutable Audit Logs]
-        Rec2Desc[⚙️ Tamper-proof logs for forensics<br/>💰 Cost: $15K/year<br/>⏱️ Effort: 1 week<br/>⚡ Investigation Time Reduction: 70%]
+        Rec2["Immutable Audit Logs"]
+        Rec2Desc["Tamper-proof logs for forensics<br/>Cost: 15K per year / Effort: 1 week<br/>Reduces investigation time by 70%"]
 
-        Rec3[🔄 Automated Backup & Restore]
-        Rec3Desc[⚙️ Quick rollback to clean state<br/>💰 Cost: $10K<br/>⏱️ Effort: 1 week<br/>⚡ Downtime Reduction: 80%]
+        Rec3["Automated Backup & Restore"]
+        Rec3Desc["Quick rollback to clean state<br/>Cost: 10K / Effort: 1 week<br/>Reduces downtime by 80%"]
 
-        Rec4[📜 Supply Chain Bill of Materials]
-        Rec4Desc[⚙️ Track all dependencies for<br/>rapid identification<br/>💰 Cost: $5K<br/>⏱️ Effort: 3 days<br/>⚡ Attribution Speed: 5x faster]
+        Rec4["Supply Chain Bill of Materials"]
+        Rec4Desc["Track all dependencies rapidly<br/>Cost: 5K / Effort: 3 days<br/>Attribution 5x faster"]
 
         Rec1 --> Rec1Desc
         Rec2 --> Rec2Desc
@@ -767,18 +767,18 @@ graph TB
         Rec4 --> Rec4Desc
     end
 
-    subgraph CurrentState["❌ CURRENT ELIZAOS STATE (Gaps)"]
+    subgraph CurrentState["❌ CURRENT ELIZAOS STATE"]
         direction TB
-        Gap1[❌ NO plugin signing]
-        Gap2[❌ NO plugin sandboxing]
-        Gap3[❌ NO runtime monitoring]
-        Gap4[❌ NO egress filtering]
-        Gap5[❌ NO spending limits]
-        Gap6[❌ NO secrets manager]
-        Gap7[❌ NO incident response plan]
-        Gap8[❌ Full process.env access]
-        Gap9[❌ No network segmentation]
-        Gap10[❌ No audit logging]
+        Gap1["NO plugin signing"]
+        Gap2["NO plugin sandboxing"]
+        Gap3["NO runtime monitoring"]
+        Gap4["NO egress filtering"]
+        Gap5["NO spending limits"]
+        Gap6["NO secrets manager"]
+        Gap7["NO incident response plan"]
+        Gap8["Full process.env access"]
+        Gap9["No network segmentation"]
+        Gap10["No audit logging"]
     end
 
     %% Show where controls would block attack
