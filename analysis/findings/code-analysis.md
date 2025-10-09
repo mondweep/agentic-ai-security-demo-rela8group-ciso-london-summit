@@ -7,6 +7,9 @@
 
 ---
 
+**Official MAESTRO Framework Reference:** [Cloud Security Alliance MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
+
+
 ## Executive Summary
 
 ElizaOS is an AI agent framework built with TypeScript/Node.js that enables creation of autonomous agents with multi-channel communication, plugin system, and LLM integration. The static analysis revealed **23 security findings** across multiple severity levels, with particular concerns around:
@@ -59,7 +62,7 @@ try {
    - Execute system commands via `Bun.spawn()`
 
 **MAESTRO Layer Mapping:**
-- **Model Layer:** Malicious plugin can manipulate LLM inputs/outputs
+- **Foundational Models:** Malicious plugin can manipulate LLM inputs/outputs
 - **Application Layer:** Full application compromise through code execution
 - **Environment Layer:** Access to all environment variables and secrets
 - **System Layer:** Filesystem and OS-level access through Node.js APIs
@@ -103,9 +106,9 @@ Write a thought and plan for {{agentName}} and decide what actions to take...
 4. Agent executes malicious actions (fund transfer, data exfiltration, etc.)
 
 **MAESTRO Layer Mapping:**
-- **Model Layer:** Direct manipulation of LLM reasoning and outputs
+- **Foundational Models:** Direct manipulation of LLM reasoning and outputs
 - **Application Layer:** Bypasses agent behavior controls
-- **Orchestration Layer:** Triggers unauthorized action execution
+- **Agent Frameworks:** Triggers unauthorized action execution
 
 **CWE References:**
 - CWE-77: Improper Neutralization of Special Elements used in a Command ('Command Injection')
@@ -198,7 +201,7 @@ export function apiKeyAuthMiddleware(req: Request, res: Response, next: NextFunc
 
 **MAESTRO Layer Mapping:**
 - **Application Layer:** Unrestricted API access
-- **Orchestration Layer:** Can create/delete/modify agents
+- **Agent Frameworks:** Can create/delete/modify agents
 - **Environment Layer:** Potential access to agent configurations and secrets
 
 **CWE References:**
@@ -308,7 +311,7 @@ async function loadSecretsNodeImpl(character: Character): Promise<boolean> {
 
 **MAESTRO Layer Mapping:**
 - **Environment Layer:** All environment secrets exposed
-- **Model Layer:** Secrets may be included in LLM context
+- **Foundational Models:** Secrets may be included in LLM context
 - **Application Layer:** Accessible to all plugins and actions
 
 **CWE References:**
@@ -414,7 +417,7 @@ export async function jsonToCharacter(character: unknown): Promise<Character> {
 5. Malicious plugins/actions execute
 
 **MAESTRO Layer Mapping:**
-- **Model Layer:** Character prompt templates can include injection
+- **Foundational Models:** Character prompt templates can include injection
 - **Application Layer:** Malicious actions and evaluators loaded
 - **Environment Layer:** Access to all secrets via character configuration
 
@@ -479,9 +482,9 @@ There is no rate limiting on action execution. A compromised agent or prompt inj
 5. Resource exhaustion (database, network, LLM API costs)
 
 **MAESTRO Layer Mapping:**
-- **Orchestration Layer:** Uncontrolled action execution
+- **Agent Frameworks:** Uncontrolled action execution
 - **Environment Layer:** API credential suspension
-- **Model Layer:** LLM API cost explosion
+- **Foundational Models:** LLM API cost explosion
 
 **CWE References:**
 - CWE-770: Allocation of Resources Without Limits or Throttling
@@ -578,7 +581,7 @@ API endpoints lack CSRF token validation. State-changing operations vulnerable t
 **Description:**
 Agent creation endpoint accepts arbitrary JSON without comprehensive validation of nested properties.
 
-**MAESTRO Layer:** Application Layer, Orchestration Layer
+**MAESTRO Layer:** Application Layer, Agent Frameworks
 **CWE:** CWE-20 (Improper Input Validation)
 
 **Recommendations:**
@@ -614,7 +617,7 @@ PostgreSQL connection string from `POSTGRES_URL` environment variable may be exp
 **Description:**
 Socket.IO connections may not properly validate authentication tokens, allowing unauthorized real-time access.
 
-**MAESTRO Layer:** Application Layer, Orchestration Layer
+**MAESTRO Layer:** Application Layer, Agent Frameworks
 **CWE:** CWE-306 (Missing Authentication for Critical Function)
 
 **Recommendations:**
@@ -632,7 +635,7 @@ Socket.IO connections may not properly validate authentication tokens, allowing 
 **Description:**
 No resource quotas implemented for agents (memory, CPU, action count, LLM tokens).
 
-**MAESTRO Layer:** Orchestration Layer, Model Layer
+**MAESTRO Layer:** Agent Frameworks, Foundational Models
 **CWE:** CWE-770 (Allocation of Resources Without Limits or Throttling)
 
 **Recommendations:**
@@ -757,7 +760,7 @@ Authentication failures, permission denials, and suspicious activities not consi
 
 ## MAESTRO Layer Risk Summary
 
-### Model Layer (LLM Integration)
+### Foundational Models (LLM Integration)
 - **Critical:** Prompt injection vulnerabilities (CRIT-002)
 - **High:** Insufficient input sanitization before model processing
 - **Risk:** Adversarial manipulation of agent behavior and decision-making
@@ -767,7 +770,7 @@ Authentication failures, permission denials, and suspicious activities not consi
 - **High:** Weak authentication (HIGH-001), XSS (HIGH-006)
 - **Risk:** Unauthorized access and data manipulation
 
-### Orchestration Layer
+### Agent Frameworks
 - **High:** No rate limiting on actions (HIGH-007)
 - **Medium:** Insufficient agent resource quotas (MED-007)
 - **Risk:** Resource exhaustion and service degradation

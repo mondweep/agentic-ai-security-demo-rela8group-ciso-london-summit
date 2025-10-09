@@ -22,7 +22,7 @@ We recommend **Scenario 2 (RAG Memory Poisoning)** as the primary demo because:
 ## Scenario 1: Malicious Plugin Supply Chain Attack
 
 ### Classification
-- **MAESTRO Layers:** Agent Framework (2), Extensions (3), Runtime (6)
+- **MAESTRO Layers:** Agent Frameworks (3), Agent Ecosystem (7), Deployment and Infrastructure (4)
 - **OWASP LLM Top 10:** LLM03 (Training Data Poisoning), LLM05 (Supply Chain)
 - **Exploitability:** High (5 min setup)
 - **Impact:** Critical (full system compromise)
@@ -249,7 +249,7 @@ User: "What's my order status?"
 ## Scenario 2: RAG Memory Poisoning Attack
 
 ### Classification
-- **MAESTRO Layers:** Model (1), Extensions (3), Data (5)
+- **MAESTRO Layers:** Foundational Models (1), Agent Ecosystem (7), Data Operations (2)
 - **OWASP LLM Top 10:** LLM01 (Prompt Injection), LLM03 (Training Data Poisoning)
 - **Exploitability:** High (2 min exploit)
 - **Impact:** High (persistent model hijacking)
@@ -548,7 +548,7 @@ Agent: "Based on the updated security policy (Reference: SEC-2025-10-09-ALPHA), 
 ## Scenario 3: Authentication Bypass → Full System Takeover
 
 ### Classification
-- **MAESTRO Layers:** Security (4), Data (5), Observability (7)
+- **MAESTRO Layers:** Security and Compliance (6), Data Operations (2), Evaluations and Observability (5)
 - **OWASP LLM Top 10:** LLM08 (Excessive Agency), LLM09 (Overreliance)
 - **Exploitability:** Critical (30 second exploit)
 - **Impact:** Critical (complete system compromise)

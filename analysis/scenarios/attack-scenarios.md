@@ -12,6 +12,9 @@
 
 This threat analysis identifies five critical attack scenarios targeting ElizaOS, an open-source framework for building autonomous AI agents. Each scenario exploits specific vulnerabilities in the agentic AI architecture and poses significant risks to confidentiality, integrity, and availability of AI-powered systems.
 
+
+**Official MAESTRO Framework Reference:** [Cloud Security Alliance MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
+
 **Key Findings:**
 - **Cross-Agent Prompt Injection** poses the highest immediate risk (Likelihood: HIGH, Impact: CRITICAL)
 - **Plugin Supply Chain Compromise** represents systemic risk across the entire ElizaOS ecosystem

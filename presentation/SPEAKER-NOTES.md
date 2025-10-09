@@ -144,13 +144,13 @@ Add: "You wouldn't give a junior engineer direct SQL access and say 'figure it o
 "Before I show you what's broken, let me introduce the framework we used: **MAESTRO**."
 
 **Acronym explanation (point to each layer as you speak):**
-- **M** - Model Layer - "This is where LLM inference happens"
-- **A** - Agent Frameworks - "Orchestration and decision-making logic"
-- **E** - Extensions & Tools - "Plugins, actions, and integrations"
-- **S** - Security & Trust - "Authentication, secrets, validation"
-- **T** - daTa Operations - "Databases, memory, RAG"
-- **R** - Runtime & Orchestration - "Process execution, APIs"
-- **O** - Observability - "Logging, monitoring, debugging"
+1. **Foundational Models** - "LLM integrations, inference, prompts"
+2. **Data Operations** - "Database, RAG, memory, vectors"
+3. **Agent Frameworks** - "Orchestration, decision logic, state"
+4. **Deployment and Infrastructure** - "Runtime, APIs, networking"
+5. **Evaluations and Observability** - "Logging, monitoring, testing"
+6. **Security and Compliance** - "Auth, secrets, policies, governance"
+7. **Agent Ecosystem** - "Plugins, actions, tools, extensions"
 
 **Analogy for non-technical audience:**
 "Think of this as the OSI model for AI security. Each layer has unique attack surfaces that traditional AppSec tools miss."

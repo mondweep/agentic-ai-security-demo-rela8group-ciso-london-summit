@@ -96,27 +96,31 @@ We analyzed it using the MAESTRO framework—a seven-layer security model for AI
 ### Content
 **Visual:** Seven-layer pyramid with color-coded risk levels
 
+**Official MAESTRO 7-Layer Framework:**
+
 | Layer | Focus | ElizaOS Risk |
 |-------|-------|-------------|
-| **M** - Model | LLM integrations, inference | 🔴 CRITICAL |
-| **A** - Agent Frameworks | Orchestration, decision logic | 🔴 CRITICAL |
-| **E** - Extensions & Tools | Plugins, actions, tools | 🔴 CRITICAL |
-| **S** - Security & Trust | Auth, secrets, validation | 🔴 CRITICAL |
-| **T** - dataTa operations | Database, RAG, memory | 🟠 HIGH |
-| **R** - Runtime & Orchestration | Process execution, APIs | 🟠 HIGH |
-| **O** - Observability | Logging, monitoring | 🟠 HIGH |
+| **Layer 1** - Foundational Models | LLM integrations, inference, prompts | 🔴 CRITICAL |
+| **Layer 2** - Data Operations | Database, RAG, memory, vectors | 🔴 CRITICAL |
+| **Layer 3** - Agent Frameworks | Orchestration, decision logic, state | 🔴 CRITICAL |
+| **Layer 4** - Deployment & Infrastructure | Runtime, APIs, networking | 🔴 CRITICAL |
+| **Layer 5** - Evaluations & Observability | Logging, monitoring, testing | 🟠 HIGH |
+| **Layer 6** - Security & Compliance | Auth, secrets, policies, governance | 🔴 CRITICAL |
+| **Layer 7** - Agent Ecosystem | Plugins, actions, tools, extensions | 🔴 CRITICAL |
 
-**Headline:** "Every Layer Has Critical Vulnerabilities"
+**Headline:** "Six of Seven Layers Have Critical Vulnerabilities"
+
+**Framework Reference:** https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro
 
 ### Visual Suggestions
 - Interactive pyramid diagram (see `/presentation/assets/maestro-framework-visual.md`)
 - Hover effects showing example vulnerabilities per layer
-- Color gradient from red (top) to orange (bottom)
+- Color gradient emphasizing critical layers (6 red, 1 orange)
 
 ### Speaker Notes
-"MAESTRO stands for Model-Agent-Extensions-Security-Data-Runtime-Observability. Think of it as the OSI model, but for AI security.
+"MAESTRO is the official Cloud Security Alliance framework for threat modeling agentic AI systems. Think of it as the OSI model, but designed specifically for AI security.
 
-The red layers—four of them—all have critical vulnerabilities that enable complete system compromise. This isn't a single bug; it's systemic architectural weakness."
+Six of the seven layers have critical vulnerabilities in ElizaOS. This isn't a single bug—it's systemic architectural weakness across the entire stack."
 
 **Transition:** "Let me show you the three most dangerous findings."
 

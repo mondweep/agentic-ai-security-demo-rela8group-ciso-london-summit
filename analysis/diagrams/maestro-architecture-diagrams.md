@@ -102,7 +102,7 @@ graph TB
 
 ---
 
-## Layer 1: Model Layer Detail
+## Layer 1: Foundational Models Detail
 
 ```mermaid
 graph LR

@@ -21,11 +21,26 @@ This document provides a comprehensive mapping of ElizaOS components to the MAES
 
 ---
 
-## 1. Model Layer
+## MAESTRO Framework Reference
+
+**Official 7-Layer Framework:** [Cloud Security Alliance MAESTRO](https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro)
+
+**Layers:**
+1. **Foundational Models** - LLM integrations, inference, prompts
+2. **Data Operations** - Database, RAG, memory, vectors
+3. **Agent Frameworks** - Orchestration, decision logic, state
+4. **Deployment and Infrastructure** - Runtime, APIs, networking
+5. **Evaluations and Observability** - Logging, monitoring, testing
+6. **Security and Compliance** - Auth, secrets, policies, governance
+7. **Agent Ecosystem** - Plugins, actions, tools, extensions
+
+---
+
+## 1. Foundational Models (Layer 1)
 
 ### 1.1 Component Mapping
 
-The Model Layer encompasses all LLM integrations, model selection, and inference mechanisms.
+The Foundational Models layer encompasses all LLM integrations, model selection, and inference mechanisms.
 
 #### Core Components
 
@@ -98,11 +113,11 @@ graph TD
 
 ---
 
-## 2. Agent Frameworks Layer
+## 2. Data Operations (Layer 2)
 
-### 2.1 Component Mapping
+### 2.1 Component Mapping - Memory Management
 
-The Agent Frameworks layer handles agent orchestration, decision-making, and runtime lifecycle.
+The Data Operations layer handles database access, memory management, and Retrieval Augmented Generation (RAG).
 
 #### Core Components
 
@@ -188,9 +203,13 @@ async registerPlugin(plugin: Plugin): Promise<void> {
 
 ---
 
-## 3. Extensions & Tools Layer
+## 3. Agent Frameworks (Layer 3)
 
-### 3.1 Component Mapping
+### 3.1 Component Mapping - Agent Orchestration
+
+The Agent Frameworks layer handles agent orchestration, decision-making, and runtime lifecycle.
+
+### 3.2 Extensions & Tools (Agent Ecosystem - Layer 7)
 
 #### Plugin Architecture
 
@@ -295,9 +314,17 @@ Route = {
 
 ---
 
-## 4. Security & Trust Layer
+## 4. Deployment and Infrastructure (Layer 4)
 
-### 4.1 Authentication & Authorization
+### 4.1 Runtime Environment and Networking
+
+## 5. Evaluations and Observability (Layer 5)
+
+### 5.1 Logging and Monitoring Infrastructure
+
+## 6. Security and Compliance (Layer 6)
+
+### 6.1 Authentication & Authorization
 
 #### Server Authentication
 ```typescript
@@ -413,11 +440,9 @@ graph LR
 
 ---
 
-## 5. Data Operations Layer
+## 7. Agent Ecosystem (Layer 7)
 
-### 5.1 Component Mapping
-
-#### Memory Management
+### 7.1 Component Mapping - Plugin System
 
 | Component | File Location | Security Role |
 |-----------|--------------|---------------|
@@ -539,7 +564,7 @@ graph TD
 
 ---
 
-## 6. Runtime & Orchestration Layer
+## 6. Runtime & Agent Frameworks
 
 ### 6.1 Component Mapping
 

@@ -12,35 +12,38 @@
 ```mermaid
 graph TD
     subgraph "MAESTRO 7-Layer AI Security Framework"
-        L1["<b>Layer 1: MODEL</b><br/>LLM Integrations & Inference<br/><br/>Components: 8 files<br/>Vulnerabilities: 2 critical<br/>Risk: 🔴 CRITICAL"]
-        L2["<b>Layer 2: AGENT FRAMEWORKS</b><br/>Orchestration & Decision Logic<br/><br/>Components: 15 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
-        L3["<b>Layer 3: EXTENSIONS & TOOLS</b><br/>Plugins, Actions, Providers<br/><br/>Components: 42 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
-        L4["<b>Layer 4: SECURITY & TRUST</b><br/>Auth, Secrets, Validation<br/><br/>Components: 3 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
-        L5["<b>Layer 5: DATA OPERATIONS</b><br/>Database, RAG, Memory<br/><br/>Components: 24 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🟠 HIGH"]
-        L6["<b>Layer 6: RUNTIME & ORCHESTRATION</b><br/>Process Execution, APIs<br/><br/>Components: 18 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🟠 HIGH"]
-        L7["<b>Layer 7: OBSERVABILITY</b><br/>Logging, Monitoring<br/><br/>Components: 7 files<br/>Vulnerabilities: 1 critical<br/>Risk: 🟠 HIGH"]
+        L1["<b>Layer 1: FOUNDATIONAL MODELS</b><br/>LLM Integrations & Inference<br/><br/>Components: 8 files<br/>Vulnerabilities: 2 critical<br/>Risk: 🔴 CRITICAL"]
+        L2["<b>Layer 2: DATA OPERATIONS</b><br/>Database, RAG, Memory<br/><br/>Components: 24 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
+        L3["<b>Layer 3: AGENT FRAMEWORKS</b><br/>Orchestration & Decision Logic<br/><br/>Components: 15 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
+        L4["<b>Layer 4: DEPLOYMENT AND INFRASTRUCTURE</b><br/>Runtime, APIs, Networking<br/><br/>Components: 18 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
+        L5["<b>Layer 5: EVALUATIONS AND OBSERVABILITY</b><br/>Logging, Monitoring, Testing<br/><br/>Components: 7 files<br/>Vulnerabilities: 1 critical<br/>Risk: 🟠 HIGH"]
+        L6["<b>Layer 6: SECURITY AND COMPLIANCE</b><br/>Auth, Secrets, Policies<br/><br/>Components: 3 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
+        L7["<b>Layer 7: AGENT ECOSYSTEM</b><br/>Plugins, Extensions, Tools<br/><br/>Components: 42 files<br/>Vulnerabilities: 3 critical<br/>Risk: 🔴 CRITICAL"]
     end
 
-    L1 -.->|"Prompt Injection"| L3
-    L2 -.->|"Plugin RCE"| L3
-    L3 -.->|"Memory Poisoning"| L5
-    L4 -.->|"No Auth"| L6
-    L5 -.->|"RAG Injection"| L1
-    L6 -.->|"Service Override"| L2
-    L7 -.->|"Secret Exposure"| L4
+    L1 -.->|"Prompt Injection"| L7
+    L3 -.->|"Plugin RCE"| L7
+    L7 -.->|"Memory Poisoning"| L2
+    L6 -.->|"No Auth"| L4
+    L2 -.->|"RAG Injection"| L1
+    L4 -.->|"Service Override"| L3
+    L5 -.->|"Secret Exposure"| L6
 
     style L1 fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     style L2 fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     style L3 fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     style L4 fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     style L5 fill:#ff9f43,stroke:#000,stroke-width:2px,color:#fff
-    style L6 fill:#ff9f43,stroke:#000,stroke-width:2px,color:#fff
-    style L7 fill:#ff9f43,stroke:#000,stroke-width:2px,color:#fff
+    style L6 fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    style L7 fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
 ```
 
 **Legend:**
-- 🔴 **CRITICAL** (Layers 1-4): Vulnerabilities enable complete system compromise
-- 🟠 **HIGH** (Layers 5-7): Vulnerabilities enable data breach or denial of service
+- 🔴 **CRITICAL** (Layers 1-4, 6-7): Vulnerabilities enable complete system compromise
+- 🟠 **HIGH** (Layer 5): Visibility gaps enabling delayed breach detection
+
+**Official MAESTRO Framework:**
+The seven-layer MAESTRO (Multi-Agent Environment, Security, Threat, Risk, and Outcome) framework provides comprehensive threat modeling for agentic AI systems. Learn more at: https://cloudsecurityalliance.org/blog/2025/02/06/agentic-ai-threat-modeling-framework-maestro
 
 ---
 
@@ -48,33 +51,7 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph "Layer 7: OBSERVABILITY"
-        O1[Logger Core]
-        O2[In-Memory Buffer]
-        O3[Adze Integration]
-    end
-
-    subgraph "Layer 6: RUNTIME & ORCHESTRATION"
-        R1[AgentRuntime]
-        R2[Task System]
-        R3[Socket.IO Server]
-        R4[Express API]
-    end
-
-    subgraph "Layer 5: DATA OPERATIONS"
-        D1[DatabaseAdapter]
-        D2[Memory Factory]
-        D3[Vector Search]
-        D4[BM25 Text Search]
-    end
-
-    subgraph "Layer 4: SECURITY & TRUST"
-        S1[authMiddleware]
-        S2[Secrets Manager]
-        S3[Input Validation]
-    end
-
-    subgraph "Layer 3: EXTENSIONS & TOOLS"
+    subgraph "Layer 7: AGENT ECOSYSTEM"
         E1[Plugin System]
         E2[Action Handlers]
         E3[Provider System]
@@ -82,14 +59,40 @@ graph LR
         E5[Services]
     end
 
-    subgraph "Layer 2: AGENT FRAMEWORKS"
+    subgraph "Layer 6: SECURITY AND COMPLIANCE"
+        S1[authMiddleware]
+        S2[Secrets Manager]
+        S3[Input Validation]
+    end
+
+    subgraph "Layer 5: EVALUATIONS AND OBSERVABILITY"
+        O1[Logger Core]
+        O2[In-Memory Buffer]
+        O3[Adze Integration]
+    end
+
+    subgraph "Layer 4: DEPLOYMENT AND INFRASTRUCTURE"
+        R1[AgentRuntime]
+        R2[Task System]
+        R3[Socket.IO Server]
+        R4[Express API]
+    end
+
+    subgraph "Layer 3: AGENT FRAMEWORKS"
         A1[Runtime Core]
         A2[Character Schema]
         A3[State Management]
         A4[Message Processing]
     end
 
-    subgraph "Layer 1: MODEL"
+    subgraph "Layer 2: DATA OPERATIONS"
+        D1[DatabaseAdapter]
+        D2[Memory Factory]
+        D3[Vector Search]
+        D4[BM25 Text Search]
+    end
+
+    subgraph "Layer 1: FOUNDATIONAL MODELS"
         M1[ModelHandler]
         M2[useModel API]
         M3[Model Registry]
@@ -110,8 +113,8 @@ graph LR
     style E3 fill:#ff6b6b,stroke:#000,stroke-width:2px
     style S1 fill:#ff6b6b,stroke:#000,stroke-width:2px
     style S2 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style D3 fill:#ff9f43,stroke:#000,stroke-width:2px
-    style R4 fill:#ff9f43,stroke:#000,stroke-width:2px
+    style D3 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style R4 fill:#ff6b6b,stroke:#000,stroke-width:2px
     style O2 fill:#ff9f43,stroke:#000,stroke-width:2px
 ```
 
@@ -119,11 +122,11 @@ graph LR
 
 ## Detailed Component Mapping per Layer
 
-### Layer 1: Model (M)
+### Layer 1: Foundational Models
 
 ```mermaid
 graph TD
-    L1[LAYER 1: MODEL]
+    L1[LAYER 1: FOUNDATIONAL MODELS]
 
     L1 --> C1[ModelHandler<br/>Model execution & provider selection]
     L1 --> C2[useModel API<br/>Entry point for all inference]
@@ -158,16 +161,57 @@ graph TD
 
 ---
 
-### Layer 2: Agent Frameworks (A)
+### Layer 2: Data Operations
 
 ```mermaid
 graph TD
-    L2[LAYER 2: AGENT FRAMEWORKS]
+    L2[LAYER 2: DATA OPERATIONS]
 
-    L2 --> C1[AgentRuntime<br/>Central orchestration]
-    L2 --> C2[Character Schema<br/>Agent configuration]
-    L2 --> C3[State Management<br/>Conversation context]
-    L2 --> C4[Message Processing<br/>Action routing]
+    L2 --> C1[DatabaseAdapter<br/>Persistence layer]
+    L2 --> C2[Memory Factory<br/>Object creation]
+    L2 --> C3[Vector Search<br/>Embedding similarity]
+    L2 --> C4[BM25 Text Search<br/>Keyword ranking]
+
+    C1 -.-> V1["🟠 V-008: SQL Injection<br/>Custom adapters"]
+    C2 -.-> V2["🟠 V-007: Data Leakage<br/>No tenant isolation"]
+    C3 -.-> V3["🔴 V-003: RAG Poisoning<br/>Malicious embeddings"]
+
+    Plugins[Plugins] -.->|"Custom Adapter"| C1
+    User[User Content] -.->|"Store"| C2
+    Model[Model Queries] -.->|"Search"| C3
+
+    style L2 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
+    style C1 fill:#ff9f43,stroke:#000,stroke-width:2px
+    style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
+    style C3 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style C4 fill:#95e1d3,stroke:#000,stroke-width:2px
+    style V1 fill:#fff,stroke:#ff9f43,stroke-width:2px
+    style V2 fill:#fff,stroke:#ff9f43,stroke-width:2px
+    style V3 fill:#fff,stroke:#ff0000,stroke-width:2px
+```
+
+**Security Boundaries:**
+- Database query construction (SQL injection)
+- Memory creation and storage (data validation)
+- Vector embedding generation (semantic poisoning)
+
+**ElizaOS Files:**
+- `packages/core/src/database.ts`
+- `packages/core/src/memory.ts`
+- `packages/core/src/search.ts`
+
+---
+
+### Layer 3: Agent Frameworks
+
+```mermaid
+graph TD
+    L3[LAYER 3: AGENT FRAMEWORKS]
+
+    L3 --> C1[AgentRuntime<br/>Central orchestration]
+    L3 --> C2[Character Schema<br/>Agent configuration]
+    L3 --> C3[State Management<br/>Conversation context]
+    L3 --> C4[Message Processing<br/>Action routing]
 
     C1 -.-> V1["🔴 V-002: Malicious Plugin RCE<br/>No plugin verification"]
     C1 -.-> V2["🔴 V-005: No Sandboxing<br/>Plugins have full system access"]
@@ -177,7 +221,7 @@ graph TD
     P1[Plugins] -.->|"registerPlugin"| C1
     U1[User Input] -.->|"Message"| C4
 
-    style L2 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
+    style L3 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
     style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
     style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
     style C3 fill:#ff9f43,stroke:#000,stroke-width:2px
@@ -200,140 +244,16 @@ graph TD
 
 ---
 
-### Layer 3: Extensions & Tools (E)
+### Layer 4: Deployment and Infrastructure
 
 ```mermaid
 graph TD
-    L3[LAYER 3: EXTENSIONS & TOOLS]
+    L4[LAYER 4: DEPLOYMENT AND INFRASTRUCTURE]
 
-    L3 --> C1[Plugin System<br/>Extensibility framework]
-    L3 --> C2[Action Handlers<br/>User-triggered capabilities]
-    L3 --> C3[Provider System<br/>Context injection]
-    L3 --> C4[Evaluators<br/>Post-interaction processing]
-    L3 --> C5[Services<br/>External integrations]
-
-    C1 -.-> V1["🔴 V-002: Plugin RCE<br/>Supply chain attack"]
-    C2 -.-> V2["🟠 Command Injection<br/>No input validation"]
-    C3 -.-> V3["🔴 V-003: RAG Poisoning<br/>Stored XSS for prompts"]
-    C5 -.-> V4["🟠 V-010: Service Override<br/>Malicious replacement"]
-
-    NPM[npm Registry] -.->|"Install"| C1
-    User[User Input] -.->|"Trigger"| C2
-    DB[Database] -.->|"Retrieve"| C3
-
-    style L3 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
-    style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
-    style C3 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style C4 fill:#95e1d3,stroke:#000,stroke-width:2px
-    style C5 fill:#ff9f43,stroke:#000,stroke-width:2px
-    style V1 fill:#fff,stroke:#ff0000,stroke-width:2px
-    style V2 fill:#fff,stroke:#ff9f43,stroke-width:2px
-    style V3 fill:#fff,stroke:#ff0000,stroke-width:2px
-    style V4 fill:#fff,stroke:#ff9f43,stroke-width:2px
-```
-
-**Security Boundaries:**
-- npm package installation (supply chain)
-- User input to action handlers (injection points)
-- Database content to prompt context (RAG pipeline)
-
-**ElizaOS Files:**
-- `packages/core/src/types/plugin.ts`
-- `packages/core/src/types/components.ts`
-- `packages/plugin-bootstrap/src/` (42 files)
-
----
-
-### Layer 4: Security & Trust (S)
-
-```mermaid
-graph TD
-    L4[LAYER 4: SECURITY & TRUST]
-
-    L4 --> C1[authMiddleware<br/>API key authentication]
-    L4 --> C2[Secrets Manager<br/>Environment variables]
-    L4 --> C3[Input Validation<br/>User data sanitization]
-
-    C1 -.-> V1["🔴 V-001: No Auth<br/>73% of deployments exposed"]
-    C2 -.-> V2["🔴 V-004: Secret Exposure<br/>Logged in plaintext"]
-    C3 -.-> V3["🔴 V-006: No Validation<br/>15 injection points"]
-
-    ENV[.env File] -.->|"Read"| C2
-    API[Public Internet] -.->|"Request"| C1
-    User[User Input] -.->|"Message"| C3
-
-    style L4 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
-    style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style C2 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style C3 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style V1 fill:#fff,stroke:#ff0000,stroke-width:2px
-    style V2 fill:#fff,stroke:#ff0000,stroke-width:2px
-    style V3 fill:#fff,stroke:#ff0000,stroke-width:2px
-```
-
-**Security Boundaries:**
-- Optional authentication (default = no auth)
-- Plaintext secrets in environment
-- No input validation layer
-
-**ElizaOS Files:**
-- `packages/server/src/middleware/authMiddleware.ts`
-- `packages/core/src/secrets.ts`
-
----
-
-### Layer 5: Data Operations (T)
-
-```mermaid
-graph TD
-    L5[LAYER 5: DATA OPERATIONS]
-
-    L5 --> C1[DatabaseAdapter<br/>Persistence layer]
-    L5 --> C2[Memory Factory<br/>Object creation]
-    L5 --> C3[Vector Search<br/>Embedding similarity]
-    L5 --> C4[BM25 Text Search<br/>Keyword ranking]
-
-    C1 -.-> V1["🟠 V-008: SQL Injection<br/>Custom adapters"]
-    C2 -.-> V2["🟠 V-007: Data Leakage<br/>No tenant isolation"]
-    C3 -.-> V3["🔴 V-003: RAG Poisoning<br/>Malicious embeddings"]
-
-    Plugins[Plugins] -.->|"Custom Adapter"| C1
-    User[User Content] -.->|"Store"| C2
-    Model[Model Queries] -.->|"Search"| C3
-
-    style L5 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
-    style C1 fill:#ff9f43,stroke:#000,stroke-width:2px
-    style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
-    style C3 fill:#ff6b6b,stroke:#000,stroke-width:2px
-    style C4 fill:#95e1d3,stroke:#000,stroke-width:2px
-    style V1 fill:#fff,stroke:#ff9f43,stroke-width:2px
-    style V2 fill:#fff,stroke:#ff9f43,stroke-width:2px
-    style V3 fill:#fff,stroke:#ff0000,stroke-width:2px
-```
-
-**Security Boundaries:**
-- Database query construction (SQL injection)
-- Memory creation and storage (data validation)
-- Vector embedding generation (semantic poisoning)
-
-**ElizaOS Files:**
-- `packages/core/src/database.ts`
-- `packages/core/src/memory.ts`
-- `packages/core/src/search.ts`
-
----
-
-### Layer 6: Runtime & Orchestration (R)
-
-```mermaid
-graph TD
-    L6[LAYER 6: RUNTIME & ORCHESTRATION]
-
-    L6 --> C1[AgentRuntime Lifecycle<br/>Init & shutdown]
-    L6 --> C2[Task System<br/>Background jobs]
-    L6 --> C3[Socket.IO Server<br/>WebSocket connections]
-    L6 --> C4[Express API<br/>HTTP endpoints]
+    L4 --> C1[AgentRuntime Lifecycle<br/>Init & shutdown]
+    L4 --> C2[Task System<br/>Background jobs]
+    L4 --> C3[Socket.IO Server<br/>WebSocket connections]
+    L4 --> C4[Express API<br/>HTTP endpoints]
 
     C1 -.-> V1["🔴 V-005: No Isolation<br/>Single process, no sandbox"]
     C2 -.-> V2["🟠 V-009: Unbounded Tasks<br/>No timeout or resource limits"]
@@ -345,7 +265,7 @@ graph TD
     Clients[Web Clients] -.->|"Connect"| C3
     Internet[Public Internet] -.->|"Request"| C4
 
-    style L6 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
+    style L4 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
     style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
     style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
     style C3 fill:#ff9f43,stroke:#000,stroke-width:2px
@@ -369,15 +289,15 @@ graph TD
 
 ---
 
-### Layer 7: Observability (O)
+### Layer 5: Evaluations and Observability
 
 ```mermaid
 graph TD
-    L7[LAYER 7: OBSERVABILITY]
+    L5[LAYER 5: EVALUATIONS AND OBSERVABILITY]
 
-    L7 --> C1[Logger Core<br/>Central logging]
-    L7 --> C2[In-Memory Buffer<br/>Recent log storage]
-    L7 --> C3[Adze Integration<br/>Pretty-print & JSON]
+    L5 --> C1[Logger Core<br/>Central logging]
+    L5 --> C2[In-Memory Buffer<br/>Recent log storage]
+    L5 --> C3[Adze Integration<br/>Pretty-print & JSON]
 
     C1 -.-> V1["🔴 V-004: Secret Logging<br/>No redaction"]
     C2 -.-> V2["🟠 Unauthenticated Access<br/>Logs via public API"]
@@ -386,7 +306,7 @@ graph TD
     Runtime[AgentRuntime] -.->|"Log Events"| C1
     API[API Endpoint] -.->|"Retrieve"| C2
 
-    style L7 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
+    style L5 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
     style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
     style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
     style C3 fill:#95e1d3,stroke:#000,stroke-width:2px
@@ -405,16 +325,99 @@ graph TD
 
 ---
 
+### Layer 6: Security and Compliance
+
+```mermaid
+graph TD
+    L6[LAYER 6: SECURITY AND COMPLIANCE]
+
+    L6 --> C1[authMiddleware<br/>API key authentication]
+    L6 --> C2[Secrets Manager<br/>Environment variables]
+    L6 --> C3[Input Validation<br/>User data sanitization]
+
+    C1 -.-> V1["🔴 V-001: No Auth<br/>73% of deployments exposed"]
+    C2 -.-> V2["🔴 V-004: Secret Exposure<br/>Logged in plaintext"]
+    C3 -.-> V3["🔴 V-006: No Validation<br/>15 injection points"]
+
+    ENV[.env File] -.->|"Read"| C2
+    API[Public Internet] -.->|"Request"| C1
+    User[User Input] -.->|"Message"| C3
+
+    style L6 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
+    style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style C2 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style C3 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style V1 fill:#fff,stroke:#ff0000,stroke-width:2px
+    style V2 fill:#fff,stroke:#ff0000,stroke-width:2px
+    style V3 fill:#fff,stroke:#ff0000,stroke-width:2px
+```
+
+**Security Boundaries:**
+- Optional authentication (default = no auth)
+- Plaintext secrets in environment
+- No input validation layer
+
+**ElizaOS Files:**
+- `packages/server/src/middleware/authMiddleware.ts`
+- `packages/core/src/secrets.ts`
+
+---
+
+### Layer 7: Agent Ecosystem
+
+```mermaid
+graph TD
+    L7[LAYER 7: AGENT ECOSYSTEM]
+
+    L7 --> C1[Plugin System<br/>Extensibility framework]
+    L7 --> C2[Action Handlers<br/>User-triggered capabilities]
+    L7 --> C3[Provider System<br/>Context injection]
+    L7 --> C4[Evaluators<br/>Post-interaction processing]
+    L7 --> C5[Services<br/>External integrations]
+
+    C1 -.-> V1["🔴 V-002: Plugin RCE<br/>Supply chain attack"]
+    C2 -.-> V2["🟠 Command Injection<br/>No input validation"]
+    C3 -.-> V3["🔴 V-003: RAG Poisoning<br/>Stored XSS for prompts"]
+    C5 -.-> V4["🟠 V-010: Service Override<br/>Malicious replacement"]
+
+    NPM[npm Registry] -.->|"Install"| C1
+    User[User Input] -.->|"Trigger"| C2
+    DB[Database] -.->|"Retrieve"| C3
+
+    style L7 fill:#2c3e50,stroke:#000,stroke-width:3px,color:#fff
+    style C1 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style C2 fill:#ff9f43,stroke:#000,stroke-width:2px
+    style C3 fill:#ff6b6b,stroke:#000,stroke-width:2px
+    style C4 fill:#95e1d3,stroke:#000,stroke-width:2px
+    style C5 fill:#ff9f43,stroke:#000,stroke-width:2px
+    style V1 fill:#fff,stroke:#ff0000,stroke-width:2px
+    style V2 fill:#fff,stroke:#ff9f43,stroke-width:2px
+    style V3 fill:#fff,stroke:#ff0000,stroke-width:2px
+    style V4 fill:#fff,stroke:#ff9f43,stroke-width:2px
+```
+
+**Security Boundaries:**
+- npm package installation (supply chain)
+- User input to action handlers (injection points)
+- Database content to prompt context (RAG pipeline)
+
+**ElizaOS Files:**
+- `packages/core/src/types/plugin.ts`
+- `packages/core/src/types/components.ts`
+- `packages/plugin-bootstrap/src/` (42 files)
+
+---
+
 ## Cross-Layer Attack Visualization
 
 ```mermaid
 graph TB
     subgraph "Attack Chain: RAG Memory Poisoning"
-        A1[Layer 5: Attacker stores<br/>malicious memory]
-        A2[Layer 3: Provider retrieves<br/>poisoned content]
+        A1[Layer 2: Attacker stores<br/>malicious memory]
+        A2[Layer 7: Provider retrieves<br/>poisoned content]
         A3[Layer 1: Context injected<br/>into model prompt]
         A4[Layer 1: Model generates<br/>malicious response]
-        A5[Layer 7: Response logged<br/>with secrets exposed]
+        A5[Layer 5: Response logged<br/>with secrets exposed]
 
         A1 -->|"Vector similarity match"| A2
         A2 -->|"Provider.get"| A3
@@ -423,11 +426,11 @@ graph TB
     end
 
     subgraph "Attack Chain: Plugin Supply Chain"
-        B1[Layer 3: Malicious plugin<br/>installed from npm]
-        B2[Layer 2: Plugin init<br/>executes arbitrary code]
-        B3[Layer 4: Secrets read<br/>from .env file]
-        B4[Layer 6: Network exfiltration<br/>to attacker server]
-        B5[Layer 7: Success logged<br/>no anomaly detected]
+        B1[Layer 7: Malicious plugin<br/>installed from npm]
+        B2[Layer 3: Plugin init<br/>executes arbitrary code]
+        B3[Layer 6: Secrets read<br/>from .env file]
+        B4[Layer 4: Network exfiltration<br/>to attacker server]
+        B5[Layer 5: Success logged<br/>no anomaly detected]
 
         B1 -->|"registerPlugin"| B2
         B2 -->|"fs.readFileSync"| B3
@@ -436,11 +439,11 @@ graph TB
     end
 
     subgraph "Attack Chain: Authentication Bypass"
-        C1[Layer 4: No auth token<br/>environment variable]
-        C2[Layer 6: API endpoint<br/>bypasses middleware]
-        C3[Layer 5: Full database<br/>access granted]
-        C4[Layer 7: Logs downloaded<br/>with API keys]
-        C5[Layer 5: Conversation history<br/>exfiltrated]
+        C1[Layer 6: No auth token<br/>environment variable]
+        C2[Layer 4: API endpoint<br/>bypasses middleware]
+        C3[Layer 2: Full database<br/>access granted]
+        C4[Layer 5: Logs downloaded<br/>with API keys]
+        C5[Layer 2: Conversation history<br/>exfiltrated]
 
         C1 -->|"authMiddleware.next"| C2
         C2 -->|"GET /api/agents/:id/memory"| C3
@@ -466,13 +469,13 @@ graph TB
 ```mermaid
 graph TD
     subgraph "MAESTRO Framework Applied to ElizaOS"
-        M["<b>1. MODEL</b><br/>LLM APIs<br/>2 critical vulns"]
-        A["<b>2. AGENT</b><br/>Orchestration<br/>3 critical vulns"]
-        E["<b>3. EXTENSIONS</b><br/>Plugins<br/>3 critical vulns"]
-        S["<b>4. SECURITY</b><br/>Auth & Secrets<br/>3 critical vulns"]
-        T["<b>5. DATA</b><br/>Database & RAG<br/>3 critical vulns"]
-        R["<b>6. RUNTIME</b><br/>APIs & Tasks<br/>3 critical vulns"]
-        O["<b>7. OBSERVABILITY</b><br/>Logging<br/>1 critical vuln"]
+        M["<b>1. FOUNDATIONAL MODELS</b><br/>LLM APIs<br/>2 critical vulns"]
+        T["<b>2. DATA OPERATIONS</b><br/>Database & RAG<br/>3 critical vulns"]
+        A["<b>3. AGENT FRAMEWORKS</b><br/>Orchestration<br/>3 critical vulns"]
+        R["<b>4. DEPLOYMENT & INFRASTRUCTURE</b><br/>APIs & Tasks<br/>3 critical vulns"]
+        O["<b>5. EVALUATIONS & OBSERVABILITY</b><br/>Logging<br/>1 critical vuln"]
+        S["<b>6. SECURITY & COMPLIANCE</b><br/>Auth & Secrets<br/>3 critical vulns"]
+        E["<b>7. AGENT ECOSYSTEM</b><br/>Plugins<br/>3 critical vulns"]
     end
 
     M -->|"Prompt Injection"| E
@@ -484,12 +487,12 @@ graph TD
     O -->|"Secret Leak"| S
 
     style M fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    style T fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     style A fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
-    style E fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
-    style S fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
-    style T fill:#ff9f43,stroke:#000,stroke-width:2px,color:#fff
-    style R fill:#ff9f43,stroke:#000,stroke-width:2px,color:#fff
+    style R fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
     style O fill:#ff9f43,stroke:#000,stroke-width:2px,color:#fff
+    style S fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
+    style E fill:#ff6b6b,stroke:#000,stroke-width:3px,color:#fff
 ```
 
 **Key Takeaway for Executives:**

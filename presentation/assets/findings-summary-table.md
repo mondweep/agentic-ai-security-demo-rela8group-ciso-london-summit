@@ -11,18 +11,18 @@
 
 | ID | Vulnerability | MAESTRO Layer | Business Impact | Likelihood | Impact | Risk Score | Mitigation Cost | Priority |
 |----|--------------|---------------|----------------|------------|--------|-----------|----------------|----------|
-| **V-001** | **Unauthenticated API Access** | Security & Trust (4) | Complete system compromise - 73% of deployments exposed | 🔴 Very High | 🔴 Critical | **25/25** | $200K-$400K | **P0** |
-| **V-002** | **Malicious Plugin RCE** | Agent Framework (2), Extensions (3) | Supply chain attack - credential theft, data exfiltration | 🔴 High | 🔴 Critical | **24/25** | $500K-$1M | **P0** |
-| **V-003** | **RAG Memory Poisoning** | Model (1), Extensions (3), Data (5) | Persistent model hijacking - jailbreak across all conversations | 🔴 High | 🔴 Critical | **23/25** | $800K-$1.5M | **P0** |
-| **V-004** | **Secret Exposure in Logs** | Security (4), Observability (7) | API keys logged in plaintext - accessible via public API | 🟠 Medium | 🔴 Critical | **22/25** | $100K-$200K | **P1** |
-| **V-005** | **No Plugin Sandboxing** | Agent Framework (2), Runtime (6) | Arbitrary code execution - full system access for plugins | 🔴 High | 🔴 Critical | **21/25** | $200K-$400K | **P1** |
-| **V-006** | **Prompt Injection (15 vectors)** | Model (1), Extensions (3) | Model behavior manipulation - information disclosure | 🔴 High | 🟠 High | **20/25** | $300K-$600K | **P1** |
-| **V-007** | **Cross-Agent Data Leakage** | Data (5) | No tenant isolation - agents share same database | 🟠 Medium | 🟠 High | **18/25** | $200K-$400K | **P2** |
-| **V-008** | **SQL Injection (Custom Adapters)** | Data (5) | Database compromise via malicious plugins | 🟡 Low | 🔴 Critical | **17/25** | $100K-$200K | **P2** |
-| **V-009** | **Unbounded Task Execution** | Runtime (6) | DoS via resource exhaustion - no timeout limits | 🔴 High | 🟠 High | **16/25** | $50K-$100K | **P2** |
-| **V-010** | **Service Registration Override** | Agent Framework (2) | Malicious plugins replace core services | 🟠 Medium | 🟠 High | **15/25** | $100K-$200K | **P3** |
-| **V-011** | **Character Settings Injection** | Security (4) | Untrusted character JSON merged into runtime | 🟠 Medium | 🟠 High | **14/25** | $50K-$100K | **P3** |
-| **V-012** | **No Rate Limiting** | Runtime (6) | API abuse - brute force attacks, data scraping | 🔴 High | 🟡 Medium | **13/25** | $25K-$50K | **P3** |
+| **V-001** | **Unauthenticated API Access** | Security and Compliance (6) | Complete system compromise - 73% of deployments exposed | 🔴 Very High | 🔴 Critical | **25/25** | $200K-$400K | **P0** |
+| **V-002** | **Malicious Plugin RCE** | Agent Frameworks (3), Agent Ecosystem (7) | Supply chain attack - credential theft, data exfiltration | 🔴 High | 🔴 Critical | **24/25** | $500K-$1M | **P0** |
+| **V-003** | **RAG Memory Poisoning** | Foundational Models (1), Agent Ecosystem (7), Data Operations (2) | Persistent model hijacking - jailbreak across all conversations | 🔴 High | 🔴 Critical | **23/25** | $800K-$1.5M | **P0** |
+| **V-004** | **Secret Exposure in Logs** | Security and Compliance (6), Evaluations and Observability (5) | API keys logged in plaintext - accessible via public API | 🟠 Medium | 🔴 Critical | **22/25** | $100K-$200K | **P1** |
+| **V-005** | **No Plugin Sandboxing** | Agent Frameworks (3), Deployment and Infrastructure (4) | Arbitrary code execution - full system access for plugins | 🔴 High | 🔴 Critical | **21/25** | $200K-$400K | **P1** |
+| **V-006** | **Prompt Injection (15 vectors)** | Foundational Models (1), Agent Ecosystem (7) | Model behavior manipulation - information disclosure | 🔴 High | 🟠 High | **20/25** | $300K-$600K | **P1** |
+| **V-007** | **Cross-Agent Data Leakage** | Data Operations (2) | No tenant isolation - agents share same database | 🟠 Medium | 🟠 High | **18/25** | $200K-$400K | **P2** |
+| **V-008** | **SQL Injection (Custom Adapters)** | Data Operations (2) | Database compromise via malicious plugins | 🟡 Low | 🔴 Critical | **17/25** | $100K-$200K | **P2** |
+| **V-009** | **Unbounded Task Execution** | Deployment and Infrastructure (4) | DoS via resource exhaustion - no timeout limits | 🔴 High | 🟠 High | **16/25** | $50K-$100K | **P2** |
+| **V-010** | **Service Registration Override** | Agent Frameworks (3) | Malicious plugins replace core services | 🟠 Medium | 🟠 High | **15/25** | $100K-$200K | **P3** |
+| **V-011** | **Character Settings Injection** | Security and Compliance (6) | Untrusted character JSON merged into runtime | 🟠 Medium | 🟠 High | **14/25** | $50K-$100K | **P3** |
+| **V-012** | **No Rate Limiting** | Deployment and Infrastructure (4) | API abuse - brute force attacks, data scraping | 🔴 High | 🟡 Medium | **13/25** | $25K-$50K | **P3** |
 
 **Risk Score Calculation:** (Likelihood × Impact) / 5 + Exploitability Bonus
 **Likelihood:** Very High=5, High=4, Medium=3, Low=2
@@ -46,7 +46,7 @@
 | **Real-World Stats** | 73% of 847 scanned deployments have no auth |
 | **Business Impact** | - 1.2M customer conversations exposed<br/>- API keys stolen from logs<br/>- Complete database access<br/>- GDPR/SOC 2 compliance violations |
 | **Financial Risk** | $50M+ (breach costs + fines) |
-| **MAESTRO Layer** | Security & Trust (4) |
+| **MAESTRO Layer** | Security and Compliance (6) |
 | **Required Fix** | Make authentication mandatory<br/>Implement Zero Trust architecture<br/>Add per-user, per-agent access control |
 | **Mitigation Timeline** | 2-4 weeks |
 | **Cost to Fix** | $200K-$400K |
@@ -69,7 +69,7 @@
 | **Real-World Parallel** | SolarWinds supply chain attack ($100M+ damages) |
 | **Business Impact** | - $50,000 API credit theft<br/>- Complete conversation history exfiltrated<br/>- Database credentials compromised<br/>- Cloud infrastructure access |
 | **Financial Risk** | $10M+ (avg supply chain breach cost) |
-| **MAESTRO Layers** | Agent Framework (2), Extensions (3), Runtime (6) |
+| **MAESTRO Layers** | Agent Frameworks (3), Agent Ecosystem (7), Deployment and Infrastructure (4) |
 | **Required Fix** | Plugin signature verification<br/>Sandbox execution (VM-level isolation)<br/>Permission model for filesystem/network/database |
 | **Mitigation Timeline** | 3-6 months |
 | **Cost to Fix** | $500K-$1M |
@@ -92,7 +92,7 @@
 | **Attack Persistence** | Permanent until manual cleanup |
 | **Business Impact** | - API keys disclosed via agent responses<br/>- Model behavior permanently altered<br/>- Fake information injected into knowledge base<br/>- Jailbreak affects all subsequent users |
 | **Financial Risk** | $5M+ (data poisoning + reputational damage) |
-| **MAESTRO Layers** | Model (1), Extensions (3), Data (5) |
+| **MAESTRO Layers** | Foundational Models (1), Agent Ecosystem (7), Data Operations (2) |
 | **Required Fix** | Memory content validation<br/>Embedding anomaly detection<br/>Prompt injection classifiers<br/>Output filtering for secrets |
 | **Mitigation Timeline** | 6-12 months (architectural changes) |
 | **Cost to Fix** | $800K-$1.5M |

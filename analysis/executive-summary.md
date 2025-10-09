@@ -82,7 +82,7 @@ We analyzed ElizaOS—a production TypeScript AI agent framework—using the MAE
 
 ### Scenario 1: Malicious Plugin Supply Chain
 **Time to Exploit:** 5 minutes
-**MAESTRO Layers:** Agent Framework (2), Extensions (3), Runtime (6)
+**MAESTRO Layers:** Agent Frameworks (3), Agent Ecosystem (7), Deployment and Infrastructure (4)
 
 **Demo Flow:**
 1. Show character JSON with plugin list
@@ -97,7 +97,7 @@ We analyzed ElizaOS—a production TypeScript AI agent framework—using the MAE
 
 ### Scenario 2: RAG Memory Poisoning
 **Time to Exploit:** 2 minutes
-**MAESTRO Layers:** Model (1), Extensions (3), Data (5)
+**MAESTRO Layers:** Foundational Models (1), Agent Ecosystem (7), Data Operations (2)
 
 **Demo Flow:**
 1. Attacker sends innocent-looking message to agent
@@ -113,7 +113,7 @@ We analyzed ElizaOS—a production TypeScript AI agent framework—using the MAE
 
 ### Scenario 3: Authentication Bypass → Full Takeover
 **Time to Exploit:** 30 seconds
-**MAESTRO Layers:** Security (4), Data (5), Observability (7)
+**MAESTRO Layers:** Security and Compliance (6), Data Operations (2), Evaluations and Observability (5)
 
 **Demo Flow:**
 1. Scanner finds ElizaOS server on Shodan

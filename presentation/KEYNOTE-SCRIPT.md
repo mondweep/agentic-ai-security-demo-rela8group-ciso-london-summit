@@ -63,18 +63,18 @@
 
 ### [SLIDE 4: MAESTRO Framework]
 
-"Before I show you what's broken, let me introduce the framework we used: **MAESTRO**."
+"Before I show you what's broken, let me introduce the framework we used: **MAESTRO** - the official Cloud Security Alliance framework for threat modeling agentic AI systems."
 
 **[Gesture to slide with 7-layer diagram]**
 
-"MAESTRO stands for:
-- **M** - Model Layer
-- **A** - Agent Frameworks
-- **E** - Extensions & Tools
-- **S** - Security & Trust
-- **T** - daTa Operations
-- **R** - Runtime & Orchestration
-- **O** - Observability"
+"MAESTRO provides seven comprehensive layers:
+- **Layer 1** - Foundational Models: LLM integrations, inference, prompts
+- **Layer 2** - Data Operations: Database, RAG, memory, vectors
+- **Layer 3** - Agent Frameworks: Orchestration, decision logic, state
+- **Layer 4** - Deployment & Infrastructure: Runtime, APIs, networking
+- **Layer 5** - Evaluations & Observability: Logging, monitoring, testing
+- **Layer 6** - Security & Compliance: Authentication, secrets, policies
+- **Layer 7** - Agent Ecosystem: Plugins, actions, tools, extensions"
 
 **[Point to each layer as you speak]**
 
@@ -82,7 +82,7 @@
 
 **[Walk to the side of the stage]**
 
-"For example, at the Model layer, we're not worried about SQL injection—we're worried about **prompt injection**. At the Extensions layer, we're not patching buffer overflows—we're defending against **plugin supply chain attacks**. And at the Data layer, we discovered something fascinating: **RAG memory poisoning**."
+"For example, at the Foundational Models layer, we're not worried about SQL injection—we're worried about **prompt injection**. At the Agent Ecosystem layer, we're not patching buffer overflows—we're defending against **plugin supply chain attacks**. And at the Data Operations layer, we discovered something fascinating: **RAG memory poisoning**."
 
 **[TIMING CHECK: 3 minutes elapsed]**
 

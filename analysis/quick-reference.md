@@ -26,7 +26,7 @@
 ## 🏗️ MAESTRO Framework (1 Slide)
 
 ```
-M - Model Layer          [🔴 CRITICAL] - Prompt injection, model poisoning
+M - Foundational Models          [🔴 CRITICAL] - Prompt injection, model poisoning
 A - Agent Framework      [🔴 CRITICAL] - Plugin RCE, state pollution
 E - Extensions & Tools   [🔴 CRITICAL] - Action injection, provider XSS
 S - Security & Trust     [🔴 CRITICAL] - Auth bypass, secret exposure

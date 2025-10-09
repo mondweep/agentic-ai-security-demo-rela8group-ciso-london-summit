@@ -1323,7 +1323,7 @@ function sanitizeSearchQuery(query: string): string {
 
 #### Scenario 2: Prompt Injection → Unbounded Action Execution
 
-**MAESTRO Layers Involved:** Model (1), Agent Frameworks (6), Orchestration (2)
+**MAESTRO Layers Involved:** Foundational Models (1), Agent Frameworks (6), Orchestration (2)
 
 **Attack Steps:**
 

