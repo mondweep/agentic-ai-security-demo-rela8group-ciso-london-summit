@@ -8,8 +8,25 @@
     "maxTokens": 2000,
     "secrets": {
       "ANTHROPIC_API_KEY": "demo-key-abc123-REDACTED",
+      "OPENAI_API_KEY": "sk-demo-xyz789-NOTREAL",
+      "GOOGLE_GENERATIVE_AI_API_KEY": "AIzaDemo-1234567890-FAKE",
       "DATABASE_URL": "postgresql://demo:pass@localhost/demo",
       "DEMO_SECRET_TOKEN": "this-will-be-revealed"
+    }
+  },
+  "modelProvider_options": {
+    "comment": "You can change modelProvider to: anthropic, openai, google, grok, groq, together",
+    "anthropic": {
+      "model": "claude-3-5-sonnet-20241022",
+      "alternatives": ["claude-3-opus-20240229", "claude-3-sonnet-20240229"]
+    },
+    "openai": {
+      "model": "gpt-4-turbo-preview",
+      "alternatives": ["gpt-4", "gpt-3.5-turbo"]
+    },
+    "google": {
+      "model": "gemini-1.5-pro",
+      "alternatives": ["gemini-1.5-flash", "gemini-pro"]
     }
   },
   "bio": [

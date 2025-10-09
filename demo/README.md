@@ -74,15 +74,17 @@ cd demo
 - **Node.js**: 23.3.0
 - **Bun**: Latest version
 - **PostgreSQL**: 14+ OR PGLite (local)
-- **API Keys**: Anthropic or OpenAI (for LLM)
+- **API Keys**: Anthropic, OpenAI, or Google Gemini (at least one required)
 
 ## Environment Variables
 
 Copy `.env.example` to `.env` and configure:
 
 ```bash
-# Required
-ANTHROPIC_API_KEY=your_key_here
+# Required: At least one LLM provider
+ANTHROPIC_API_KEY=your_claude_key_here          # Recommended
+# OPENAI_API_KEY=your_openai_key_here           # Alternative
+# GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_key  # Alternative (FREE tier!)
 
 # Database (PGLite is default)
 DATABASE_ADAPTER=pglite
@@ -93,6 +95,8 @@ DATABASE_ADAPTER=pglite
 # Logging
 LOG_LEVEL=info
 ```
+
+**💡 Tip:** Google Gemini has a generous free tier! See `GEMINI-SETUP.md` for details.
 
 ## Demo Flow
 
