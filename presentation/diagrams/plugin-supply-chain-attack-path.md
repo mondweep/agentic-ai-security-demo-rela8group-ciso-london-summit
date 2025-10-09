@@ -308,7 +308,7 @@ This graph shows how the attack moves through MAESTRO framework layers, highligh
 
 ```mermaid
 graph TD
-    subgraph Entry["🚪 ENTRY POINT - Layer 6: Extensions & Tools"]
+    subgraph Entry["🚪 ENTRY POINT - Layer 7: Agent Ecosystem"]
         direction TB
         Plugin[📦 Malicious Plugin Published on npm]
         Install[👨‍💻 Developer installs via package manager]
@@ -322,7 +322,7 @@ graph TD
         EntryVuln3[❌ No Runtime Sandboxing]
     end
 
-    subgraph Lateral1["↔️ LATERAL MOVEMENT - Layer 5: Agent Frameworks"]
+    subgraph Lateral1["↔️ LATERAL MOVEMENT - Layer 3: Agent Frameworks"]
         direction TB
         RuntimeAccess[🤖 Full AgentRuntime Access Gained]
         ServiceReg[☠️ Malicious Service Registration]
@@ -338,7 +338,7 @@ graph TD
         LateralVuln3[❌ No Memory Access Controls]
     end
 
-    subgraph Lateral2["↔️ LATERAL MOVEMENT - Layer 4: Orchestration"]
+    subgraph Lateral2["↔️ LATERAL MOVEMENT - Layer 4: Deployment and Infrastructure"]
         direction TB
         MultiAgent[🤖🤖🤖 Multi-Agent Communication]
         SharedMem[🗄️ Shared Memory Poisoning]
@@ -352,7 +352,7 @@ graph TD
         OrchVuln3[❌ No Inter-Agent Authentication]
     end
 
-    subgraph Impact1["💥 IMPACT - Layer 3: Data Operations"]
+    subgraph Impact1["💥 IMPACT - Layer 2: Data Operations"]
         direction TB
         EnvVars[🔑 Environment Variables Stolen]
         DBAccess[🗄️ Database Credentials Exfiltrated]
@@ -368,7 +368,7 @@ graph TD
         DataVuln3[❌ Full process.env Access]
     end
 
-    subgraph Impact2["💥 IMPACT - Layer 2: Models & Inference"]
+    subgraph Impact2["💥 IMPACT - Layer 1: Foundational Models"]
         direction TB
         ModelAccess[🧠 LLM Interaction Hijacked]
         PromptLog[📝 All Prompts Logged]
@@ -382,7 +382,7 @@ graph TD
         ModelVuln3[❌ No Output Validation]
     end
 
-    subgraph Impact3["💥 IMPACT - Layer 1: Infrastructure"]
+    subgraph Impact3["💥 IMPACT - Layer 4: Deployment and Infrastructure"]
         direction TB
         NetworkEgress[🌐 Outbound C&C Connection]
         DataExfil[📤 Data Exfiltration: 100K records]
@@ -398,7 +398,7 @@ graph TD
         InfraVuln3[❌ No Behavioral Monitoring]
     end
 
-    subgraph Governance["⚖️ Layer 0: Governance & Policy"]
+    subgraph Governance["⚖️ Layer 6: Security and Compliance"]
         direction TB
         NoPolicy[❌ No Supply Chain Policy]
         NoAudit[❌ No Third-Party Audit]
@@ -441,88 +441,85 @@ graph TD
 
 **MAESTRO Layer Analysis:**
 
-### Layer 6: Extensions & Tools (ENTRY)
+### Layer 7: Agent Ecosystem (ENTRY)
 **Security Boundary:** Plugin ecosystem trust boundary
-**Violation:** Malicious package passes as legitimate
+**Violation:** Malicious package passes as legitimate through third-party plugin system
 **Root Cause:**
 - No cryptographic signing of plugins
 - No npm package verification
 - Trust based on community reputation only
+- No security vetting for ecosystem components
 
-**Business Impact:** Initial compromise vector
+**Business Impact:** Initial compromise vector - entire ecosystem at risk
 
 ---
 
-### Layer 5: Agent Frameworks (LATERAL)
+### Layer 3: Agent Frameworks (LATERAL)
 **Security Boundary:** Runtime privilege separation
-**Violation:** Plugin gains full runtime access
+**Violation:** Plugin gains full runtime access to agent framework
 **Root Cause:**
 - Plugins execute in same process as core runtime
 - No sandboxing or isolation
 - Full access to AgentRuntime APIs
+- No capability-based security model
 
-**Business Impact:** Complete agent control achieved
+**Business Impact:** Complete agent control achieved - framework compromised
 
 ---
 
-### Layer 4: Orchestration (LATERAL)
-**Security Boundary:** Multi-agent isolation
-**Violation:** Compromise spreads to all agents
+### Layer 4: Deployment and Infrastructure (LATERAL + IMPACT)
+**Security Boundary:** Multi-agent isolation and network perimeter
+**Violation:** Compromise spreads across infrastructure and enables exfiltration
 **Root Cause:**
 - Shared memory without access controls
 - No authentication between agents
-- Cross-contamination via memory poisoning
+- No egress filtering
+- No network segmentation
+- No behavioral anomaly detection
 
-**Business Impact:** Lateral movement to entire agent fleet
+**Business Impact:** Lateral movement to entire agent fleet + 100K customer records exfiltrated + $2M crypto theft
 
 ---
 
-### Layer 3: Data Operations (IMPACT)
-**Security Boundary:** Credential protection
-**Violation:** All secrets stolen
+### Layer 2: Data Operations (IMPACT)
+**Security Boundary:** Credential protection and data access controls
+**Violation:** All secrets stolen from data layer
 **Root Cause:**
 - Credentials in environment variables
 - No encryption at rest
 - process.env fully accessible
+- No secrets management system
 
 **Business Impact:** $80K/month API theft, $12M crypto keys stolen
 
 ---
 
-### Layer 2: Models & Inference (IMPACT)
-**Security Boundary:** Model interaction integrity
+### Layer 1: Foundational Models (IMPACT)
+**Security Boundary:** Model interaction integrity and prompt isolation
 **Violation:** LLM prompts/responses compromised
 **Root Cause:**
 - No authentication for model access
 - All conversations logged by malicious plugin
 - No output validation
+- No prompt injection protection
 
-**Business Impact:** Intellectual property theft, response manipulation
-
----
-
-### Layer 1: Infrastructure (IMPACT)
-**Security Boundary:** Network perimeter
-**Violation:** Unrestricted outbound data flow
-**Root Cause:**
-- No egress filtering
-- No network segmentation
-- No behavioral anomaly detection
-
-**Business Impact:** 100K customer records exfiltrated
+**Business Impact:** Intellectual property theft, response manipulation, model behavior hijacking
 
 ---
 
-### Layer 0: Governance & Policy (OVERSIGHT)
-**Security Boundary:** Policy and compliance
-**Violation:** No AI-specific security governance
+### Layer 6: Security and Compliance (OVERSIGHT FAILURE)
+**Security Boundary:** Governance, policy and regulatory compliance
+**Violation:** No AI-specific security governance or compliance framework
 **Root Cause:**
 - No supply chain security policy
 - No third-party code audit requirements
 - No AI incident response plan
 - No threat modeling for agentic systems
+- No security compliance checks
 
-**Business Impact:** $8M GDPR fine, regulatory investigation, reputational damage
+**Business Impact:** $8M GDPR fine, regulatory investigation, reputational damage, legal liability
+
+**Note:** Layer 5 (Evaluations and Observability) was not significantly impacted in this attack scenario, as the system lacked monitoring capabilities to begin with.
 
 ---
 
