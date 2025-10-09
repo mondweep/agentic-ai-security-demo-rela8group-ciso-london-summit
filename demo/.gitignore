@@ -1,0 +1,31 @@
+# Demo environment files
+.env
+
+# Logs
+logs/*.log
+*.log
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# ElizaOS data
+.eliza/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Screenshots (keep directory, ignore files)
+screenshots/*
+!screenshots/.gitkeep
