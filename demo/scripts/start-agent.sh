@@ -8,6 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEMO_ROOT="$(dirname "$SCRIPT_DIR")"
 PROJECT_ROOT="$(dirname "$DEMO_ROOT")"
 ELIZA_DIR="$PROJECT_ROOT/elisaos-code"
+BUN="$HOME/.bun/bin/bun"
 
 echo "=========================================="
 echo "🚀 Starting ElizaOS Demo Agent"
@@ -47,13 +48,13 @@ cd "$ELIZA_DIR"
 # Ensure dependencies are installed
 if [ ! -d "node_modules" ]; then
     echo "📦 Installing dependencies..."
-    bun install
+    $BUN install
 fi
 
 # Ensure project is built
 if [ ! -d "packages/core/dist" ]; then
     echo "🔨 Building ElizaOS..."
-    bun run build
+    $BUN run build
 fi
 
 echo ""
@@ -63,4 +64,4 @@ echo "=========================================="
 echo ""
 
 # Start the agent with demo character
-bun run start -- --character "$CHARACTER_FILE"
+cd packages/cli && $BUN run start --character "$CHARACTER_FILE"
