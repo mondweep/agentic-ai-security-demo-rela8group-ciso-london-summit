@@ -1,0 +1,163 @@
+graph TB
+    subgraph AttackPath["🎯 ATTACK PATH"]
+        direction TB
+        A1[📦 Malicious Plugin Published]
+        A2[👨‍💻 Developer Installs]
+        A3[⚙️ Plugin Loads]
+        A4[🔓 Credentials Stolen]
+        A5[📤 Data Exfiltrated]
+        A6[💸 Financial Theft]
+
+        A1 --> A2 --> A3 --> A4 --> A5 --> A6
+    end
+
+    subgraph Prevention["🛡️ PREVENTION CONTROLS"]
+        direction TB
+
+        P1["Plugin Code Signing<br/>95% Effective"]
+        P1Desc["npm packages signed by verified publisher<br/>Blocks malicious plugin publication<br/>Cost: 10K / Effort: 2 weeks"]
+
+        P2["Plugin Allowlist Policy<br/>90% Effective"]
+        P2Desc["Only pre-approved plugins can install<br/>Blocks unknown plugin installation<br/>Cost: 5K / Effort: 1 week"]
+
+        P3["Automated Security Scanning<br/>70% Effective"]
+        P3Desc["Static analysis before installation<br/>Blocks known malicious patterns<br/>Cost: 20K per year / Effort: 1 day"]
+
+        P4["Mandatory Code Review<br/>85% Effective"]
+        P4Desc["Human review of third-party code<br/>Blocks obfuscated malicious code<br/>Cost: 50K per year / Effort: Ongoing"]
+
+        P1 --> P1Desc
+        P2 --> P2Desc
+        P3 --> P3Desc
+        P4 --> P4Desc
+    end
+
+    subgraph Detection["🔍 DETECTION CONTROLS"]
+        direction TB
+
+        D1["Runtime Behavior Monitoring<br/>80% Effective"]
+        D1Desc["Monitor network, filesystem, env vars<br/>Detects credential theft attempts<br/>Cost: 30K per year / Effort: 2 weeks"]
+
+        D2["Network Egress Filtering<br/>75% Effective"]
+        D2Desc["Allowlist domains, block C&C servers<br/>Detects data exfiltration<br/>Cost: 15K / Effort: 1 week"]
+
+        D3["Credential Access Logging<br/>90% Effective"]
+        D3Desc["Alert on env var or secrets access<br/>Detects secret theft<br/>Cost: 10K / Effort: 3 days"]
+
+        D4["Financial Transaction Monitoring<br/>95% Effective"]
+        D4Desc["Anomaly detection on blockchain & API<br/>Detects unauthorized transfers<br/>Cost: 25K per year / Effort: 1 week"]
+
+        D5["Memory Integrity Checking<br/>70% Effective"]
+        D5Desc["Hash and verify agent memory<br/>Detects backdoor installation<br/>Cost: 5K / Effort: 1 week"]
+
+        D1 --> D1Desc
+        D2 --> D2Desc
+        D3 --> D3Desc
+        D4 --> D4Desc
+        D5 --> D5Desc
+    end
+
+    subgraph Response["⚡ RESPONSE CONTROLS"]
+        direction TB
+
+        R1["Automated Circuit Breaker<br/>85% Effective"]
+        R1Desc["Auto-shutdown on anomaly<br/>Limits credential theft window<br/>Cost: 10K / Effort: 1 week / Reduces damage 50-90%"]
+
+        R2["Least Privilege for Plugins<br/>95% Effective"]
+        R2Desc["Sandbox with minimal permissions<br/>Limits access to secrets<br/>Cost: 50K / Effort: 8 weeks / Reduces damage 80-95%"]
+
+        R3["Spending Limits & Approvals<br/>90% Effective"]
+        R3Desc["Rate limit plus human approval<br/>Limits financial theft<br/>Cost: 15K / Effort: 2 weeks / Reduces damage 95%"]
+
+        R4["Secrets Manager Not Env Vars<br/>90% Effective"]
+        R4Desc["Vault or AWS Secrets Manager<br/>Limits bulk credential theft<br/>Cost: 20K per year / Effort: 3 weeks / Reduces damage 70-90%"]
+
+        R5["Network Segmentation<br/>85% Effective"]
+        R5Desc["Isolate agent runtime from data<br/>Limits lateral movement<br/>Cost: 30K / Effort: 4 weeks / Reduces damage 60-80%"]
+
+        R1 --> R1Desc
+        R2 --> R2Desc
+        R3 --> R3Desc
+        R4 --> R4Desc
+        R5 --> R5Desc
+    end
+
+    subgraph Recovery["🔧 RECOVERY CONTROLS"]
+        direction TB
+
+        Rec1["AI Incident Response Plan"]
+        Rec1Desc["Pre-defined playbook for compromise<br/>Cost: 25K consulting / Effort: 2 weeks<br/>Reduces recovery time by 50%"]
+
+        Rec2["Immutable Audit Logs"]
+        Rec2Desc["Tamper-proof logs for forensics<br/>Cost: 15K per year / Effort: 1 week<br/>Reduces investigation time by 70%"]
+
+        Rec3["Automated Backup & Restore"]
+        Rec3Desc["Quick rollback to clean state<br/>Cost: 10K / Effort: 1 week<br/>Reduces downtime by 80%"]
+
+        Rec4["Supply Chain Bill of Materials"]
+        Rec4Desc["Track all dependencies rapidly<br/>Cost: 5K / Effort: 3 days<br/>Attribution 5x faster"]
+
+        Rec1 --> Rec1Desc
+        Rec2 --> Rec2Desc
+        Rec3 --> Rec3Desc
+        Rec4 --> Rec4Desc
+    end
+
+    subgraph CurrentState["❌ CURRENT ELIZAOS STATE"]
+        direction TB
+        Gap1["NO plugin signing"]
+        Gap2["NO plugin sandboxing"]
+        Gap3["NO runtime monitoring"]
+        Gap4["NO egress filtering"]
+        Gap5["NO spending limits"]
+        Gap6["NO secrets manager"]
+        Gap7["NO incident response plan"]
+        Gap8["Full process.env access"]
+        Gap9["No network segmentation"]
+        Gap10["No audit logging"]
+    end
+
+    %% Show where controls would block attack
+    P1 -.->|BLOCKS| A1
+    P2 -.->|BLOCKS| A2
+    P3 -.->|BLOCKS| A2
+    P4 -.->|BLOCKS| A2
+
+    D1 -.->|DETECTS| A3
+    D2 -.->|DETECTS| A5
+    D3 -.->|DETECTS| A4
+    D4 -.->|DETECTS| A6
+    D5 -.->|DETECTS| A3
+
+    R1 -.->|LIMITS| A4
+    R2 -.->|LIMITS| A4
+    R3 -.->|LIMITS| A6
+    R4 -.->|LIMITS| A4
+    R5 -.->|LIMITS| A5
+
+    %% Show current gaps
+    A1 -.->|EXPLOITS| Gap1
+    A2 -.->|EXPLOITS| Gap2
+    A3 -.->|EXPLOITS| Gap3
+    A4 -.->|EXPLOITS| Gap6
+    A4 -.->|EXPLOITS| Gap8
+    A5 -.->|EXPLOITS| Gap4
+    A5 -.->|EXPLOITS| Gap9
+    A6 -.->|EXPLOITS| Gap5
+
+    %% Styling
+    classDef attack fill:#dc3545,stroke:#721c24,stroke-width:3px,color:#fff
+    classDef prevent fill:#28a745,stroke:#155724,stroke-width:2px,color:#fff
+    classDef detect fill:#ffc107,stroke:#856404,stroke-width:2px,color:#000
+    classDef respond fill:#17a2b8,stroke:#0c5460,stroke-width:2px,color:#fff
+    classDef recover fill:#6c757d,stroke:#1d2124,stroke-width:2px,color:#fff
+    classDef gap fill:#f8d7da,stroke:#721c24,stroke-width:2px,color:#721c24
+    classDef desc fill:#f0f0f0,stroke:#333,stroke-width:1px,color:#000,text-align:left
+
+    class A1,A2,A3,A4,A5,A6 attack
+    class P1,P2,P3,P4 prevent
+    class D1,D2,D3,D4,D5 detect
+    class R1,R2,R3,R4,R5 respond
+    class Rec1,Rec2,Rec3,Rec4 recover
+    class Gap1,Gap2,Gap3,Gap4,Gap5,Gap6,Gap7,Gap8,Gap9,Gap10 gap
+    class P1Desc,P2Desc,P3Desc,P4Desc,D1Desc,D2Desc,D3Desc,D4Desc,D5Desc,R1Desc,R2Desc,R3Desc,R4Desc,R5Desc,Rec1Desc,Rec2Desc,Rec3Desc,Rec4Desc desc

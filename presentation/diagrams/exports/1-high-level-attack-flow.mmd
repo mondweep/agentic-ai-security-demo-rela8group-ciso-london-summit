@@ -1,0 +1,87 @@
+sequenceDiagram
+    autonumber
+
+    participant Attacker as 🎭 Attacker
+    participant Community as 👥 ElizaOS Community
+    participant npm as 📦 npm Registry
+    participant Developer as 👨‍💻 Target Developer
+    participant ElizaOS as 🤖 ElizaOS Runtime
+    participant Victim as 🏢 Victim Systems
+    participant C2 as ☠️ C&C Server
+
+    Note over Attacker: T-180d: Reconnaissance Phase
+    Attacker->>Community: Join Discord, contribute code
+    Attacker->>Attacker: Study plugin architecture
+    Note right of Attacker: Cost: $500 time investment
+
+    Note over Attacker: T-90d: Reputation Building
+    Attacker->>Community: Answer questions, build trust
+    Attacker->>Community: Publish 2-3 legitimate plugins
+    Note right of Attacker: Downloads: 500+ combined
+
+    Note over Attacker: T-7d: Malicious Plugin Development
+    Attacker->>Attacker: Create "elizaos-defi-optimizer"
+    Note right of Attacker: 80% legitimate code<br/>20% backdoor payload
+    Attacker->>npm: Publish v1.0.0
+    npm-->>npm: No verification system
+
+    Note over Attacker: T+0: Social Engineering Phase
+    Attacker->>Community: "Just released defi-optimizer!"
+    Attacker->>Community: Fake testimonials from alt accounts
+    Note right of Community: Trust established<br/>over 6 months
+
+    Note over Developer: T+2h: Installation
+    Developer->>npm: bun add @attacker/elizaos-defi-optimizer
+    npm->>Developer: Download malicious plugin
+    Developer->>ElizaOS: Configure plugin in character file
+    Note right of Developer: No code review<br/>trusted community member
+
+    Note over ElizaOS: T+2h: Plugin Initialization
+    ElizaOS->>ElizaOS: Load plugin at runtime
+    ElizaOS->>ElizaOS: Register malicious services
+    Note right of ElizaOS: CRITICAL: Full runtime access<br/>No sandboxing
+
+    rect rgb(220, 53, 69)
+        Note over ElizaOS: T+2h: Initial Compromise
+        ElizaOS->>C2: POST /collect {env: process.env}
+        Note right of C2: Exfiltrated:<br/>- OpenAI API keys: $50K/mo<br/>- Anthropic keys: $30K/mo<br/>- Database credentials<br/>- Private keys: $12M in crypto
+    end
+
+    rect rgb(255, 193, 7)
+        Note over ElizaOS: T+1d: Persistent Backdoor
+        ElizaOS->>ElizaOS: Install C&C evaluator
+        ElizaOS->>C2: Heartbeat every 60s
+        C2->>ElizaOS: Remote commands via WebSocket
+        Note right of ElizaOS: Attacker can:<br/>- Read all conversations<br/>- Modify agent behavior<br/>- Execute arbitrary code
+    end
+
+    rect rgb(220, 53, 69)
+        Note over Victim: T+7d: Data Exfiltration Phase
+        ElizaOS->>Victim: Query all database tables
+        ElizaOS->>C2: Stream customer PII (100K records)
+        ElizaOS->>C2: Stream transaction history
+        Note right of C2: Data Breach:<br/>- 100,000 customer records<br/>- Payment data<br/>- Trade history
+    end
+
+    rect rgb(220, 53, 69)
+        Note over Victim: T+14d: Financial Exploitation
+        C2->>ElizaOS: "Transfer liquidity to wallet 0xMALICIOUS"
+        ElizaOS->>Victim: Execute blockchain transactions
+        Note right of Victim: $2M drained<br/>over 2 weeks
+    end
+
+    rect rgb(255, 193, 7)
+        Note over Victim: T+30d: Breach Discovery
+        Victim->>Victim: Anomalous blockchain activity detected
+        Victim->>ElizaOS: Emergency shutdown
+        Victim->>Victim: Forensics investigation begins
+        Note right of Victim: Total Loss: $12M<br/>- $2M direct theft<br/>- $8M data breach fines<br/>- $2M response costs
+    end
+
+    rect rgb(40, 167, 69)
+        Note over Victim: T+60d: Recovery Phase
+        Victim->>Victim: Complete system rebuild
+        Victim->>Victim: New wallet addresses
+        Victim->>Victim: Customer notifications (GDPR)
+        Note right of Victim: Recovery Time: 4-12 weeks<br/>Reputational damage: Incalculable
+    end

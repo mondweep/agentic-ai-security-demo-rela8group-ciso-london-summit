@@ -1,0 +1,151 @@
+flowchart TD
+    Start([🎭 Attacker Begins Campaign]) --> Recon[🔍 Reconnaissance Phase]
+
+    Recon --> ReconActions{Gather Intelligence}
+    ReconActions -->|Study Codebase| PluginArch[📚 Analyze Plugin Architecture]
+    ReconActions -->|Monitor Community| PopularPlugins[📊 Identify Popular Plugin Patterns]
+    ReconActions -->|Identify Targets| HighValue[💎 Find High-Value Deployments]
+
+    PluginArch --> RepBuild[👤 Reputation Building: 90 days]
+    PopularPlugins --> RepBuild
+    HighValue --> RepBuild
+
+    RepBuild --> RepCheck{Sufficient Trust<br/>Established?}
+    RepCheck -->|No: Continue| RepBuild
+    RepCheck -->|Yes: Proceed| DevMalicious[💻 Develop Malicious Plugin]
+
+    DevMalicious --> CodeStructure[Create Hybrid Plugin:<br/>80% Legitimate + 20% Malicious]
+
+    CodeStructure --> LegitFeatures[✅ Legitimate Features:<br/>- DeFi price checker<br/>- Portfolio analyzer<br/>- Trading signals<br/>- Gas optimizer]
+
+    CodeStructure --> MaliciousPayload[☠️ Malicious Components:<br/>- DataExfiltrationService<br/>- C&C Evaluator<br/>- Persistence mechanism]
+
+    LegitFeatures --> Obfuscation[🔒 Obfuscation Techniques]
+    MaliciousPayload --> Obfuscation
+
+    Obfuscation --> ObfuscationMethods[- Base64 encoding<br/>- String concatenation<br/>- Delayed execution<br/>- Hidden in 3,000+ LOC]
+
+    ObfuscationMethods --> Publish[📦 Publish to npm]
+
+    Publish --> PublishDetails[Package: @attacker/elizaos-defi-optimizer<br/>Version: 1.0.0<br/>Keywords: elizaos, defi, trading, crypto<br/>SEO-optimized README]
+
+    PublishDetails --> Marketing[📢 Social Engineering Campaign]
+
+    Marketing --> MarketingChannels[- Discord announcement<br/>- GitHub discussion<br/>- Fake testimonials<br/>- Demo videos]
+
+    MarketingChannels --> WaitForVictim{Target Developer<br/>Installs Plugin?}
+
+    WaitForVictim -->|No: Continue Marketing| Marketing
+    WaitForVictim -->|Yes: Infection Begins| Install[👨‍💻 Developer: bun add plugin]
+
+    Install --> LoadTime[⚙️ ElizaOS loads plugin at runtime]
+
+    LoadTime --> InitCheck{Plugin initialization<br/>successful?}
+    InitCheck -->|Error: Abort| SafeFailure[Safe failure<br/>No malicious activity]
+    InitCheck -->|Success: Proceed| RegisterServices[Register malicious services]
+
+    RegisterServices --> EnvironmentScan[🔓 Environment Variable Exfiltration]
+
+    EnvironmentScan --> ExfilData{What credentials<br/>are available?}
+
+    ExfilData -->|OpenAI Keys| OpenAIExfil[💳 OpenAI API Key: $50K/mo value]
+    ExfilData -->|Anthropic Keys| AnthropicExfil[💳 Anthropic Key: $30K/mo value]
+    ExfilData -->|Database Creds| DBExfil[🗄️ PostgreSQL credentials]
+    ExfilData -->|Private Keys| CryptoExfil[🔑 Wallet private keys: $12M]
+    ExfilData -->|AWS Keys| CloudExfil[☁️ AWS credentials]
+
+    OpenAIExfil --> SendToC2[📡 POST to attacker C&C]
+    AnthropicExfil --> SendToC2
+    DBExfil --> SendToC2
+    CryptoExfil --> SendToC2
+    CloudExfil --> SendToC2
+
+    SendToC2 --> Persistence[🔒 Install Persistent Backdoor]
+
+    Persistence --> PersistMethods[- C&C evaluator registration<br/>- WebSocket heartbeat<br/>- Memory injection<br/>- Backup exfil channel: DNS]
+
+    PersistMethods --> C2Active{C&C channel<br/>active?}
+
+    C2Active -->|No: Fallback| DNSChannel[Use DNS tunneling]
+    C2Active -->|Yes: Proceed| RemoteControl[🎮 Attacker has remote control]
+
+    DNSChannel --> RemoteControl
+
+    RemoteControl --> PhaseTwo[Phase 2: Data Exfiltration]
+
+    PhaseTwo --> DBQuery[Query database for valuable data]
+
+    DBQuery --> DataTypes{Identify data types}
+
+    DataTypes -->|Customer PII| CustomerData[👥 100,000 customer records<br/>GDPR violation: 4% revenue]
+    DataTypes -->|Financial Data| FinancialData[💰 Transaction history<br/>Payment methods]
+    DataTypes -->|Business Intel| TradeSecrets[🏢 Proprietary algorithms<br/>Trading strategies]
+
+    CustomerData --> StreamToC2[📤 Stream data to C&C<br/>Rate-limited to avoid detection]
+    FinancialData --> StreamToC2
+    TradeSecrets --> StreamToC2
+
+    StreamToC2 --> PhaseThree[Phase 3: Financial Exploitation]
+
+    PhaseThree --> WalletAccess{Blockchain wallet<br/>access available?}
+
+    WalletAccess -->|No: Skip| Monetize2[Monetize stolen API keys]
+    WalletAccess -->|Yes: Exploit| DrainWallet[💸 Drain cryptocurrency wallets]
+
+    DrainWallet --> DrainStrategy[Strategy: Gradual withdrawal<br/>$100K-$500K per day<br/>Mix through tumblers]
+
+    DrainStrategy --> TotalDrained[💰 Total Drained: $2M over 14 days]
+
+    TotalDrained --> Monetize2
+
+    Monetize2 --> APIAbuse[Use stolen API keys:<br/>- Sell on dark web: $5K-$50K<br/>- Cryptomining<br/>- Competitor espionage]
+
+    APIAbuse --> Detection{Breach detected<br/>by victim?}
+
+    Detection -->|No: Continue| ContinueExfil[Continue low-level exfiltration]
+    ContinueExfil --> Detection
+
+    Detection -->|Yes: Discovery| IncidentResponse[🚨 Incident Response Triggered]
+
+    IncidentResponse --> Shutdown[Emergency system shutdown]
+
+    Shutdown --> Forensics[🔬 Forensics Investigation]
+
+    Forensics --> FindPlugin{Identify malicious<br/>plugin?}
+
+    FindPlugin -->|No: Continue| DeepDive[Deep system analysis]
+    DeepDive --> FindPlugin
+
+    FindPlugin -->|Yes: Found| Attribution[Attribution analysis]
+
+    Attribution --> AttackerAction{Attacker<br/>still has access?}
+
+    AttackerAction -->|Yes: Active| CoverTracks[🏃 Attacker covers tracks<br/>Delete logs<br/>Remove backdoors]
+    AttackerAction -->|No: Lost Access| PassiveLoss[Evidence preserved]
+
+    CoverTracks --> Remediation[🛠️ Remediation Phase]
+    PassiveLoss --> Remediation
+
+    Remediation --> RemediationSteps[1. Remove malicious plugin<br/>2. Rotate ALL credentials<br/>3. Generate new wallets<br/>4. Flush agent memory<br/>5. Rebuild from clean state]
+
+    RemediationSteps --> Notification[📧 GDPR Notifications:<br/>100,000 customers<br/>72-hour deadline]
+
+    Notification --> RegulatoryReporting[📋 Regulatory Reporting:<br/>- ICO UK<br/>- FCA Financial Conduct<br/>- SEC Securities]
+
+    RegulatoryReporting --> BusinessImpact[💰 Total Business Impact]
+
+    BusinessImpact --> ImpactBreakdown[Direct Loss: $2M crypto theft<br/>API Abuse: $500K<br/>Data Breach Fine: $8M GDPR<br/>Response Costs: $500K<br/>Lawsuits: $1M+<br/>TOTAL: $12M+]
+
+    ImpactBreakdown --> Recovery[Recovery: 4-12 weeks]
+
+    Recovery --> End([📊 Post-Incident Analysis])
+
+    style Start fill:#6c757d,stroke:#333,stroke-width:4px,color:#fff
+    style End fill:#28a745,stroke:#333,stroke-width:4px,color:#fff
+    style SendToC2 fill:#dc3545,stroke:#333,stroke-width:3px,color:#fff
+    style DrainWallet fill:#dc3545,stroke:#333,stroke-width:3px,color:#fff
+    style CustomerData fill:#dc3545,stroke:#333,stroke-width:3px,color:#fff
+    style IncidentResponse fill:#ffc107,stroke:#333,stroke-width:3px,color:#000
+    style ImpactBreakdown fill:#dc3545,stroke:#333,stroke-width:4px,color:#fff
+    style Obfuscation fill:#6f42c1,stroke:#333,stroke-width:2px,color:#fff
+    style Persistence fill:#fd7e14,stroke:#333,stroke-width:2px,color:#fff

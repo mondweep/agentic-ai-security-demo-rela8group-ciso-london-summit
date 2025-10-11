@@ -1,0 +1,130 @@
+graph TD
+    subgraph Entry["🚪 ENTRY POINT - Layer 7: Agent Ecosystem"]
+        direction TB
+        Plugin[📦 Malicious Plugin Published on npm]
+        Install[👨‍💻 Developer installs via package manager]
+        Load[⚙️ Plugin loaded at runtime]
+
+        Plugin --> Install
+        Install --> Load
+
+        EntryVuln1[❌ No Plugin Signing]
+        EntryVuln2[❌ No Package Verification]
+        EntryVuln3[❌ No Runtime Sandboxing]
+    end
+
+    subgraph Lateral1["↔️ LATERAL MOVEMENT - Layer 3: Agent Frameworks"]
+        direction TB
+        RuntimeAccess[🤖 Full AgentRuntime Access Gained]
+        ServiceReg[☠️ Malicious Service Registration]
+        EvalReg[☠️ Backdoor Evaluator Installation]
+        MemoryAccess[🧠 Agent Memory Read/Write]
+
+        RuntimeAccess --> ServiceReg
+        RuntimeAccess --> EvalReg
+        RuntimeAccess --> MemoryAccess
+
+        LateralVuln1[❌ No Privilege Separation]
+        LateralVuln2[❌ Unrestricted Service Registration]
+        LateralVuln3[❌ No Memory Access Controls]
+    end
+
+    subgraph Lateral2["↔️ LATERAL MOVEMENT - Layer 4: Deployment and Infrastructure"]
+        direction TB
+        MultiAgent[🤖🤖🤖 Multi-Agent Communication]
+        SharedMem[🗄️ Shared Memory Poisoning]
+        CrossContam[☣️ Cross-Agent Contamination]
+
+        MultiAgent --> SharedMem
+        SharedMem --> CrossContam
+
+        OrchVuln1[❌ No Agent Isolation]
+        OrchVuln2[❌ Shared Memory Without ACLs]
+        OrchVuln3[❌ No Inter-Agent Authentication]
+    end
+
+    subgraph Impact1["💥 IMPACT - Layer 2: Data Operations"]
+        direction TB
+        EnvVars[🔑 Environment Variables Stolen]
+        DBAccess[🗄️ Database Credentials Exfiltrated]
+        APIKeys[💳 API Keys Compromised]
+        PrivKeys[🔐 Private Keys Stolen]
+
+        EnvVars --> DBAccess
+        EnvVars --> APIKeys
+        EnvVars --> PrivKeys
+
+        DataVuln1[❌ Secrets in Environment]
+        DataVuln2[❌ No Credential Encryption]
+        DataVuln3[❌ Full process.env Access]
+    end
+
+    subgraph Impact2["💥 IMPACT - Layer 1: Foundational Models"]
+        direction TB
+        ModelAccess[🧠 LLM Interaction Hijacked]
+        PromptLog[📝 All Prompts Logged]
+        ResponseMod[✏️ Responses Modified]
+
+        ModelAccess --> PromptLog
+        ModelAccess --> ResponseMod
+
+        ModelVuln1[❌ No Model Access Controls]
+        ModelVuln2[❌ Prompt/Response Logging]
+        ModelVuln3[❌ No Output Validation]
+    end
+
+    subgraph Impact3["💥 IMPACT - Layer 4: Deployment and Infrastructure"]
+        direction TB
+        NetworkEgress[🌐 Outbound C&C Connection]
+        DataExfil[📤 Data Exfiltration: 100K records]
+        CryptoTheft[💸 Blockchain Transactions: $2M]
+        Persistence[🔒 Persistent Backdoor]
+
+        NetworkEgress --> DataExfil
+        NetworkEgress --> CryptoTheft
+        NetworkEgress --> Persistence
+
+        InfraVuln1[❌ No Egress Filtering]
+        InfraVuln2[❌ No Network Segmentation]
+        InfraVuln3[❌ No Behavioral Monitoring]
+    end
+
+    subgraph Governance["⚖️ Layer 6: Security and Compliance"]
+        direction TB
+        NoPolicy[❌ No Supply Chain Policy]
+        NoAudit[❌ No Third-Party Audit]
+        NoIncidentPlan[❌ No AI Incident Response]
+        NoThreatModel[❌ No AI Threat Model]
+
+        GovImpact[💼 Regulatory Consequences:<br/>GDPR: $8M fine<br/>FCA Investigation<br/>Class-Action Lawsuit]
+    end
+
+    %% Attack Flow Connections
+    Load -->|Boundary Violation #1| RuntimeAccess
+    EvalReg -->|Boundary Violation #2| MultiAgent
+    MemoryAccess -->|Boundary Violation #3| SharedMem
+    CrossContam -->|Boundary Violation #4| EnvVars
+    DBAccess -->|Boundary Violation #5| ModelAccess
+    PromptLog -->|Boundary Violation #6| NetworkEgress
+
+    %% Governance Oversight
+    NoPolicy -.->|Enables| Plugin
+    NoAudit -.->|Enables| RuntimeAccess
+    NoIncidentPlan -.->|Delays| DataExfil
+    NoThreatModel -.->|Enables| Persistence
+
+    CryptoTheft --> GovImpact
+    DataExfil --> GovImpact
+
+    %% Styling
+    classDef entry fill:#17a2b8,stroke:#0c5460,stroke-width:3px,color:#fff
+    classDef lateral fill:#ffc107,stroke:#856404,stroke-width:3px,color:#000
+    classDef impact fill:#dc3545,stroke:#721c24,stroke-width:3px,color:#fff
+    classDef governance fill:#6c757d,stroke:#1d2124,stroke-width:3px,color:#fff
+    classDef vuln fill:#f8d7da,stroke:#721c24,stroke-width:2px,color:#721c24
+
+    class Entry entry
+    class Lateral1,Lateral2 lateral
+    class Impact1,Impact2,Impact3 impact
+    class Governance governance
+    class EntryVuln1,EntryVuln2,EntryVuln3,LateralVuln1,LateralVuln2,LateralVuln3,OrchVuln1,OrchVuln2,OrchVuln3,DataVuln1,DataVuln2,DataVuln3,ModelVuln1,ModelVuln2,ModelVuln3,InfraVuln1,InfraVuln2,InfraVuln3 vuln

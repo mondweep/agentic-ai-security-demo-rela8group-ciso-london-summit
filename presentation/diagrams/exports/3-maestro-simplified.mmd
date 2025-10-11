@@ -1,0 +1,73 @@
+graph TB
+    subgraph Attack["🎯 ATTACK PROGRESSION"]
+        direction LR
+        Entry[📦 Malicious Plugin<br/>Layer 7: Ecosystem]
+        Runtime[🤖 Runtime Compromise<br/>Layer 3: Framework]
+        Lateral[☣️ Multi-Agent Spread<br/>Layer 4: Infrastructure]
+        DataTheft[🔑 Credential Theft<br/>Layer 2: Data Ops]
+        ModelHijack[🧠 Model Hijacking<br/>Layer 1: Foundation]
+        Exfil[💸 Financial Theft<br/>$12M Loss]
+
+        Entry --> Runtime --> Lateral
+        Lateral --> DataTheft --> ModelHijack --> Exfil
+    end
+
+    subgraph MAESTRO["🛡️ MAESTRO FRAMEWORK DEFENSE LAYERS"]
+        direction TB
+
+        L7["Layer 7: Agent Ecosystem<br/>✅ Plugin Verification & Signing"]
+        L3["Layer 3: Agent Frameworks<br/>✅ Runtime Sandboxing & Isolation"]
+        L4["Layer 4: Infrastructure<br/>✅ Network Segmentation & Monitoring"]
+        L2["Layer 2: Data Operations<br/>✅ Secrets Management & Encryption"]
+        L1["Layer 1: Foundation Models<br/>✅ Access Controls & Output Validation"]
+        L6["Layer 6: Security & Compliance<br/>✅ Governance Policies & Incident Response"]
+        L5["Layer 5: Observability<br/>✅ Real-time Monitoring & Alerting"]
+
+        L7 --> L3 --> L4
+        L4 --> L2 --> L1
+        L6 -.->|Governs| L7
+        L6 -.->|Governs| L3
+        L6 -.->|Governs| L4
+        L5 -.->|Monitors| L3
+        L5 -.->|Monitors| L4
+        L5 -.->|Monitors| L2
+    end
+
+    subgraph Impact["💰 BUSINESS IMPACT"]
+        direction TB
+        Without["❌ WITHOUT MAESTRO<br/>$12M Total Loss<br/>30 days to detect<br/>12 weeks recovery"]
+        With["✅ WITH MAESTRO<br/>$50K prevented loss<br/>< 1 hour detection<br/>1 week recovery"]
+        ROI["📊 ROI: 240:1<br/>Investment: $300K<br/>Prevented: $12M+"]
+    end
+
+    %% Defense blocking attack
+    L7 -.->|BLOCKS| Entry
+    L3 -.->|BLOCKS| Runtime
+    L4 -.->|BLOCKS| Lateral
+    L2 -.->|BLOCKS| DataTheft
+    L1 -.->|BLOCKS| ModelHijack
+    L5 -.->|DETECTS| Runtime
+    L5 -.->|DETECTS| DataTheft
+    L6 -.->|PREVENTS| Exfil
+
+    %% Impact connections
+    Exfil -.->|Current State| Without
+    L7 -.->|With MAESTRO| With
+    With --> ROI
+
+    %% Styling
+    classDef attack fill:#dc3545,stroke:#721c24,stroke-width:4px,color:#fff,font-size:14px
+    classDef defense fill:#28a745,stroke:#155724,stroke-width:3px,color:#fff,font-size:13px
+    classDef governance fill:#6c757d,stroke:#1d2124,stroke-width:3px,color:#fff,font-size:13px
+    classDef monitor fill:#ffc107,stroke:#856404,stroke-width:3px,color:#000,font-size:13px
+    classDef impact fill:#17a2b8,stroke:#0c5460,stroke-width:3px,color:#fff,font-size:14px
+    classDef good fill:#28a745,stroke:#155724,stroke-width:3px,color:#fff,font-size:14px
+    classDef bad fill:#dc3545,stroke:#721c24,stroke-width:3px,color:#fff,font-size:14px
+
+    class Entry,Runtime,Lateral,DataTheft,ModelHijack,Exfil attack
+    class L7,L3,L4,L2,L1 defense
+    class L6 governance
+    class L5 monitor
+    class Without bad
+    class With good
+    class ROI impact
