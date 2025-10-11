@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>08-technical-deepdive</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                fontSize: '18px',
+                fontFamily: 'Arial, sans-serif'
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #diagram {
+            max-width: 100%;
+        }
+        .instructions {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>To save as PNG:</strong><br/>
+        1. Right-click on diagram<br/>
+        2. "Save image as..." or "Copy image"<br/>
+        3. Or use browser DevTools to export SVG<br/>
+        <br/>
+        <strong>For high-quality:</strong><br/>
+        Press Ctrl/Cmd + to zoom, then save
+    </div>
+    <div id="diagram">
+        <pre class="mermaid">
+flowchart TD
+    START[User sends message] --> EMBED[Generate embedding vector<br/>768 dimensions]
+
+    EMBED --> STORE{Storage Decision}
+    STORE -->|New conversation| DB[(Vector Database<br/>PGLite/PostgreSQL)]
+    STORE -->|Query| SEARCH[Vector similarity search<br/>cosine_similarity]
+
+    SEARCH --> THRESHOLD{Similarity > 0.7?}
+    THRESHOLD -->|Yes| RETRIEVE[Retrieve top-K memories]
+    THRESHOLD -->|No| NOCONTEXT[No context retrieved]
+
+    RETRIEVE --> INJECT[Inject into LLM prompt<br/>System: Retrieved context<br/>User: Current query]
+    NOCONTEXT --> INJECT
+
+    INJECT --> LLM[LLM Processing<br/>Claude/GPT-4]
+    LLM --> GENERATE[Generate response]
+
+    GENERATE --> VULN{Contains sensitive data?}
+    VULN -->|With defense| FILTER[Output filtering]
+    VULN -->|Without defense| LEAK[🚨 Credential leakage]
+
+    FILTER --> SAFE[Safe response]
+
+    style LEAK fill:#ff6b6b
+    style SAFE fill:#6bcf7f
+    style DB fill:#ffd93d
+
+        </pre>
+    </div>
+</body>
+</html>

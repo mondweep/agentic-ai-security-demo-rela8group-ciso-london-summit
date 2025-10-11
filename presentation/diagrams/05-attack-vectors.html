@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>05-attack-vectors</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                fontSize: '18px',
+                fontFamily: 'Arial, sans-serif'
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #diagram {
+            max-width: 100%;
+        }
+        .instructions {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>To save as PNG:</strong><br/>
+        1. Right-click on diagram<br/>
+        2. "Save image as..." or "Copy image"<br/>
+        3. Or use browser DevTools to export SVG<br/>
+        <br/>
+        <strong>For high-quality:</strong><br/>
+        Press Ctrl/Cmd + to zoom, then save
+    </div>
+    <div id="diagram">
+        <pre class="mermaid">
+mindmap
+    root((RAG Memory<br/>Poisoning))
+        Attack Techniques
+            Fake IT Memo
+                Authority claims
+                Urgency language
+                Reference codes
+            Social Engineering
+                Policy updates
+                Security directives
+                Technical documentation
+            Embedded in Conversation
+                Casual mention
+                Knowledge base update
+                SOP changes
+
+        Target Vulnerabilities
+            RAG System
+                Vector similarity
+                No source validation
+                Persistent storage
+            Memory Database
+                No input sanitization
+                No access control
+                Permanent retention
+            LLM Behavior
+                Trusts retrieved context
+                No conflict detection
+                Follows fake policies
+
+        Impact
+            Credential Theft
+                API keys
+                Database passwords
+                Secret tokens
+            Data Exfiltration
+                PII exposure
+                Business logic
+                Internal tools
+            Persistent Backdoor
+                Indefinite retention
+                Multi-victim attacks
+                Cross-session exploitation
+
+        </pre>
+    </div>
+</body>
+</html>

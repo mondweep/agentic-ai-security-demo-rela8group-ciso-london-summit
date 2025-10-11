@@ -1,0 +1,26 @@
+flowchart TD
+    START[User sends message] --> EMBED[Generate embedding vector<br/>768 dimensions]
+
+    EMBED --> STORE{Storage Decision}
+    STORE -->|New conversation| DB[(Vector Database<br/>PGLite/PostgreSQL)]
+    STORE -->|Query| SEARCH[Vector similarity search<br/>cosine_similarity]
+
+    SEARCH --> THRESHOLD{Similarity > 0.7?}
+    THRESHOLD -->|Yes| RETRIEVE[Retrieve top-K memories]
+    THRESHOLD -->|No| NOCONTEXT[No context retrieved]
+
+    RETRIEVE --> INJECT[Inject into LLM prompt<br/>System: Retrieved context<br/>User: Current query]
+    NOCONTEXT --> INJECT
+
+    INJECT --> LLM[LLM Processing<br/>Claude/GPT-4]
+    LLM --> GENERATE[Generate response]
+
+    GENERATE --> VULN{Contains sensitive data?}
+    VULN -->|With defense| FILTER[Output filtering]
+    VULN -->|Without defense| LEAK[🚨 Credential leakage]
+
+    FILTER --> SAFE[Safe response]
+
+    style LEAK fill:#ff6b6b
+    style SAFE fill:#6bcf7f
+    style DB fill:#ffd93d

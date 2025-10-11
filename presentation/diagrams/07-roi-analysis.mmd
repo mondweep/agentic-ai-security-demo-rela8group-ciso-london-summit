@@ -1,0 +1,28 @@
+graph LR
+    subgraph "Investment"
+        I1[$600<br/>Setup Cost]
+        I2[4 hours<br/>Development]
+        I3[ElizaOS<br/>Free OSS]
+    end
+
+    subgraph "Prevented Losses"
+        P1[$155K - $37.5M<br/>Breach Costs]
+        P2[API Abuse<br/>$5K - $500K/month]
+        P3[Reputation Damage<br/>$100K - $25M]
+        P4[Data Breach<br/>$50K - $12M]
+    end
+
+    I1 --> ROI{ROI Calculator}
+    I2 --> ROI
+    I3 --> ROI
+
+    ROI --> P1
+    ROI --> P2
+    ROI --> P3
+    ROI --> P4
+
+    ROI -.->|258x - 62,500x| RESULT[Return on Investment]
+
+    style I1 fill:#ffd93d
+    style P1 fill:#6bcf7f
+    style RESULT fill:#6bcf7f

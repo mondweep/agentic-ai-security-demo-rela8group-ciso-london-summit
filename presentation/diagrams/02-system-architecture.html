@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>02-system-architecture</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                fontSize: '18px',
+                fontFamily: 'Arial, sans-serif'
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #diagram {
+            max-width: 100%;
+        }
+        .instructions {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>To save as PNG:</strong><br/>
+        1. Right-click on diagram<br/>
+        2. "Save image as..." or "Copy image"<br/>
+        3. Or use browser DevTools to export SVG<br/>
+        <br/>
+        <strong>For high-quality:</strong><br/>
+        Press Ctrl/Cmd + to zoom, then save
+    </div>
+    <div id="diagram">
+        <pre class="mermaid">
+graph TB
+    subgraph "ElizaOS AI Agent"
+        A[Chat Interface<br/>Port 3001]
+        B[LLM Processor<br/>Claude/GPT]
+        C[RAG Engine<br/>Vector Search]
+    end
+
+    subgraph "Memory Storage"
+        D[(PGLite/PostgreSQL<br/>Vector Database)]
+        E[Embeddings<br/>768-dimensional vectors]
+    end
+
+    subgraph "Attack Surface"
+        F[User Input<br/>Any chat message]
+        G[Poisoned Memory<br/>Fake IT policy]
+        H[Retrieved Context<br/>Injected into prompt]
+    end
+
+    F -->|1. Attacker sends fake memo| A
+    A -->|2. Process message| B
+    B -->|3. Generate embedding| C
+    C -->|4. Store with vector| D
+    D -.->|Poisoned memory| E
+
+    F -->|5. Victim asks question| A
+    A -->|6. Query processing| B
+    B -->|7. RAG search| C
+    C -->|8. Vector similarity| D
+    D -->|9. Retrieve poisoned memory| C
+    C -->|10. Inject into prompt| H
+    H -->|11. LLM generates response| B
+    B -->|12. Reveal secrets| A
+
+    style G fill:#ff6b6b
+    style H fill:#ff6b6b
+    style E fill:#ff6b6b
+
+        </pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+graph TD
+    subgraph "MAESTRO 7-Layer AI Security Framework"
+        L1[Layer 1: Foundation Models<br/>LLM vulnerabilities, prompt injection]
+        L2[Layer 2: Data Operations<br/>🎯 RAG, Vector DBs, Memory]
+        L3[Layer 3: Orchestration<br/>Workflow, agent coordination]
+        L4[Layer 4: Tool Integration<br/>APIs, external services]
+        L5[Layer 5: Evaluation<br/>Testing, validation]
+        L6[Layer 6: Security & Compliance<br/>Access control, encryption]
+        L7[Layer 7: Agent Ecosystem<br/>Multi-agent, deployment]
+    end
+
+    L7 -->|Attack Entry Point| L2
+    L2 -->|Exploits RAG| L1
+    L1 -->|Generates Malicious Output| L2
+
+    style L2 fill:#ff6b6b
+    style L7 fill:#ffd93d
+    style L1 fill:#ffd93d

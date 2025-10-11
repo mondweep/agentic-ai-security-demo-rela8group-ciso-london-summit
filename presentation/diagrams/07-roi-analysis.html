@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>07-roi-analysis</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                fontSize: '18px',
+                fontFamily: 'Arial, sans-serif'
+            }
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #diagram {
+            max-width: 100%;
+        }
+        .instructions {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <strong>To save as PNG:</strong><br/>
+        1. Right-click on diagram<br/>
+        2. "Save image as..." or "Copy image"<br/>
+        3. Or use browser DevTools to export SVG<br/>
+        <br/>
+        <strong>For high-quality:</strong><br/>
+        Press Ctrl/Cmd + to zoom, then save
+    </div>
+    <div id="diagram">
+        <pre class="mermaid">
+graph LR
+    subgraph "Investment"
+        I1[$600<br/>Setup Cost]
+        I2[4 hours<br/>Development]
+        I3[ElizaOS<br/>Free OSS]
+    end
+
+    subgraph "Prevented Losses"
+        P1[$155K - $37.5M<br/>Breach Costs]
+        P2[API Abuse<br/>$5K - $500K/month]
+        P3[Reputation Damage<br/>$100K - $25M]
+        P4[Data Breach<br/>$50K - $12M]
+    end
+
+    I1 --> ROI{ROI Calculator}
+    I2 --> ROI
+    I3 --> ROI
+
+    ROI --> P1
+    ROI --> P2
+    ROI --> P3
+    ROI --> P4
+
+    ROI -.->|258x - 62,500x| RESULT[Return on Investment]
+
+    style I1 fill:#ffd93d
+    style P1 fill:#6bcf7f
+    style RESULT fill:#6bcf7f
+
+        </pre>
+    </div>
+</body>
+</html>

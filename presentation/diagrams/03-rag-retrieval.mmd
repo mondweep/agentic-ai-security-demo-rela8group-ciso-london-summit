@@ -1,0 +1,23 @@
+flowchart LR
+    subgraph "Phase 1: Memory Storage"
+        A1[Attacker Message] --> A2[Text to Vector<br/>Embedding Model]
+        A2 --> A3[Store in Database<br/>with metadata]
+    end
+
+    subgraph "Phase 2: Victim Query"
+        B1[Victim Query] --> B2[Query to Vector<br/>Same Embedding Model]
+        B2 --> B3[Vector Similarity Search<br/>cosine_similarity]
+    end
+
+    subgraph "Phase 3: Context Injection"
+        C1[Top-K Results<br/>threshold > 0.7] --> C2[Retrieved Memories]
+        C2 --> C3[Inject into LLM Prompt]
+        C3 --> C4[LLM Output<br/>Reveals Secrets]
+    end
+
+    A3 -.->|similarity: 0.94| B3
+    B3 --> C1
+
+    style A3 fill:#ff6b6b
+    style C2 fill:#ff6b6b
+    style C4 fill:#ff6b6b

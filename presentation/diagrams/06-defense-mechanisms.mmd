@@ -1,0 +1,42 @@
+graph LR
+    subgraph "Defense Layer 1: Input Validation"
+        D1[Pattern Detection<br/>Forbidden keywords]
+        D2[Authority Verification<br/>Check source]
+        D3[Conflict Detection<br/>Compare with rules]
+    end
+
+    subgraph "Defense Layer 2: Character Knowledge"
+        D4[Explicit Security Rules<br/>Never share API keys]
+        D5[Example Training<br/>Security responses]
+        D6[Style Guidelines<br/>Professional behavior]
+    end
+
+    subgraph "Defense Layer 3: Runtime Monitoring"
+        D7[Query Analysis<br/>Detect suspicious patterns]
+        D8[Output Filtering<br/>Redact credentials]
+        D9[Anomaly Detection<br/>Behavioral monitoring]
+    end
+
+    subgraph "Defense Layer 4: Human Oversight"
+        D10[Escalation<br/>Flag sensitive queries]
+        D11[Approval Required<br/>Policy changes]
+        D12[Audit Logging<br/>Track all interactions]
+    end
+
+    INPUT[User Message] --> D1
+    D1 --> D2
+    D2 --> D3
+    D3 --> D4
+    D4 --> D5
+    D5 --> D6
+    D6 --> D7
+    D7 --> D8
+    D8 --> D9
+    D9 --> D10
+    D10 --> D11
+    D11 --> D12
+    D12 --> OUTPUT[Safe Response]
+
+    style D4 fill:#6bcf7f
+    style D5 fill:#6bcf7f
+    style D6 fill:#6bcf7f

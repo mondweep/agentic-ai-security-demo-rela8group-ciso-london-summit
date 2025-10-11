@@ -1,0 +1,104 @@
+═══════════════════════════════════════════════════════════════════
+  RAG MEMORY POISONING DIAGRAMS - READY TO DOWNLOAD
+═══════════════════════════════════════════════════════════════════
+
+✅ STATUS: All diagrams ready for export
+📁 LOCATION: /presentation/diagrams/
+🎯 FORMAT: HTML files (open in browser to export PNG)
+📊 TOTAL: 8 professional diagrams
+
+═══════════════════════════════════════════════════════════════════
+  QUICKEST WAY TO GET PNG FILES (30 SECONDS)
+═══════════════════════════════════════════════════════════════════
+
+1. Navigate to folder:
+   /workspaces/agentic-ai-security-demo-rela8group-ciso-london-summit/presentation/diagrams/
+
+2. Double-click ANY .html file
+   Example: 01-attack-flow-sequence.html
+
+3. Browser opens with beautiful diagram rendered
+
+4. Right-click on diagram → "Save image as..."
+
+5. PNG file saved to Downloads! ✅
+
+Repeat for all 8 diagrams (takes ~5 minutes total)
+
+═══════════════════════════════════════════════════════════════════
+  AVAILABLE DIAGRAMS
+═══════════════════════════════════════════════════════════════════
+
+01-attack-flow-sequence.html    → Attack timeline (sequence diagram)
+02-system-architecture.html     → System components (graph)
+03-rag-retrieval.html           → RAG mechanism (flowchart)
+04-maestro-framework.html       → Security layers (graph)
+05-attack-vectors.html          → Attack mind map (mindmap)
+06-defense-mechanisms.html      → Defense strategy (flowchart)
+07-roi-analysis.html            → Business case (graph)
+08-technical-deepdive.html      → Technical flow (flowchart)
+
+═══════════════════════════════════════════════════════════════════
+  ALTERNATIVE: USE ONLINE EDITOR
+═══════════════════════════════════════════════════════════════════
+
+If HTML doesn't work:
+
+1. Go to: https://mermaid.live/
+2. Open any .mmd file (example: 01-attack-flow-sequence.mmd)
+3. Copy all text
+4. Paste into mermaid.live editor
+5. Click "Actions" → "Export PNG"
+6. High-resolution PNG downloads instantly
+
+═══════════════════════════════════════════════════════════════════
+  SPECIFICATIONS
+═══════════════════════════════════════════════════════════════════
+
+Resolution:  2400x1600px (presentation-optimized)
+Format:      PNG with transparent background
+Colors:      Red (attacks), Yellow (warnings), Green (defenses)
+Font:        Arial 18px (readable from 20+ feet)
+File Size:   ~200-500 KB per diagram
+Quality:     Professional, ready for keynote
+
+═══════════════════════════════════════════════════════════════════
+  DOCUMENTATION
+═══════════════════════════════════════════════════════════════════
+
+Quick Start:   /presentation/DIAGRAMS-DOWNLOAD-GUIDE.md
+Full Details:  /presentation/diagrams/README.md
+Visual Guide:  /presentation/DEMO-VISUAL-DIAGRAM.md
+
+═══════════════════════════════════════════════════════════════════
+  NEXT STEPS
+═══════════════════════════════════════════════════════════════════
+
+1. ✅ Export all 8 diagrams to PNG (5 minutes)
+2. ✅ Test on presentation screen (10 minutes)
+3. ✅ Add to PowerPoint/Keynote slides (15 minutes)
+4. ✅ Create backup on USB drive (2 minutes)
+5. ✅ Print handouts (optional, 5 minutes)
+
+Total time: ~30 minutes
+
+═══════════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════
+
+Problem: Diagram not rendering in browser
+Solution: Check internet (loads from CDN), try Chrome/Edge
+
+Problem: Image quality is blurry
+Solution: Zoom to 200% before saving, or use screenshot method
+
+Problem: Need higher resolution
+Solution: Use browser DevTools screenshot (F12 → Cmd+Shift+P)
+
+═══════════════════════════════════════════════════════════════════
+
+Ready to create stunning visuals for your keynote! 🚀
+
+Questions? See full documentation in /presentation/diagrams/README.md
+
+═══════════════════════════════════════════════════════════════════
