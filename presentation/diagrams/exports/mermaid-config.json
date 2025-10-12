@@ -1,0 +1,14 @@
+{
+  "theme": "default",
+  "themeVariables": {
+    "fontSize": "20px",
+    "fontFamily": "Arial, sans-serif"
+  },
+  "flowchart": {
+    "htmlLabels": true,
+    "curve": "basis",
+    "nodeSpacing": 100,
+    "rankSpacing": 100,
+    "padding": 20
+  }
+}
