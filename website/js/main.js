@@ -164,23 +164,23 @@ function animateCounter(el) {
 
 /* --- Mermaid Diagrams --- */
 function initMermaid() {
-  if (typeof mermaid !== 'undefined') {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'dark',
-      themeVariables: {
-        darkMode: true,
-        background: '#1a1f35',
-        primaryColor: '#7c3aed',
-        primaryTextColor: '#e2e8f0',
-        primaryBorderColor: '#334155',
-        lineColor: '#64748b',
-        secondaryColor: '#0d1117',
-        tertiaryColor: '#111827',
-        fontFamily: 'Inter, sans-serif'
-      },
-      flowchart: { curve: 'basis' },
-      sequence: { mirrorActors: false }
-    });
-  }
+  if (typeof mermaid === 'undefined') return;
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'dark',
+    themeVariables: {
+      darkMode: true,
+      background: '#1a1f35',
+      primaryColor: '#7c3aed',
+      primaryTextColor: '#e2e8f0',
+      primaryBorderColor: '#334155',
+      lineColor: '#64748b',
+      secondaryColor: '#0d1117',
+      tertiaryColor: '#111827',
+      fontFamily: 'Inter, sans-serif'
+    },
+    flowchart: { curve: 'basis' },
+    sequence: { mirrorActors: false }
+  });
+  mermaid.run({ nodes: document.querySelectorAll('.mermaid') });
 }
